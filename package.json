@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@react-navigation/core": "github:brianaderer/react-navigation#react-navigation-core-v7.0.0-alpha.4-gitpkg",
+    "@react-navigation/native": "github:brianaderer/react-navigation#react-navigation-native-v7.0.0-alpha.4-gitpkg",
     "@react-navigation/native-stack": "^6.9.14",
     "react": "17.0.2",
     "react-native": "0.68.2",

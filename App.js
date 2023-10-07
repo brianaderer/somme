@@ -7,7 +7,11 @@
  */
 
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import {
+  NavigationContainer,
+  DefaultTheme,
+  DarkTheme,
+} from '@react-navigation/native';
 import type {Node} from 'react';
 import {
   SafeAreaView,
