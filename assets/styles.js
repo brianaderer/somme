@@ -16,4 +16,14 @@ export const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
+  baseText: {
+    color: 'black',
+    fontWeight: '900',
+  },
+  homeStyles: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: 'black',
+  },
 });

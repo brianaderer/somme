@@ -10,6 +10,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import type {Node} from 'react';
 import {
+  Text,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -17,8 +18,10 @@ import {
   View,
 } from 'react-native';
 import {styles} from './assets/styles';
-import {Colors, Header} from 'react-native/Libraries/NewAppScreen';
-import ReactDefault from './components/react-default';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+const Stack = createNativeStackNavigator();
+import Home from './components/Home';
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -29,20 +32,25 @@ const App: () => Node = () => {
 
   return (
     <NavigationContainer>
-      <SafeAreaView style={backgroundStyle}>
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={backgroundStyle}>
-          <Header />
-          <View
-            style={{
-              backgroundColor: isDarkMode ? Colors.black : Colors.white,
-            }}>
-            <ReactDefault styles={styles} />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
+      {/*<SafeAreaView style={backgroundStyle}>*/}
+      {/*  <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />*/}
+      {/*<ScrollView*/}
+      {/*  contentInsetAdjustmentBehavior="automatic"*/}
+      {/*  style={backgroundStyle}>*/}
+      {/*  <View*/}
+      {/*    style={{*/}
+      {/*      backgroundColor: isDarkMode ? Colors.black : Colors.white,*/}
+      {/*    }}>*/}
+      <Stack.Navigator>
+        <Stack.Screen
+          initialParams={{styles: styles}}
+          component={Home}
+          name={'Home'}
+        />
+      </Stack.Navigator>
+      {/*</View>*/}
+      {/*</ScrollView>*/}
+      {/*</SafeAreaView>*/}
     </NavigationContainer>
   );
 };
