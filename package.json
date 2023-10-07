@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@react-native-firebase/app": "^18.5.0",
+    "@react-native-firebase/auth": "^18.5.0",
     "@react-navigation/core": "github:brianaderer/react-navigation#react-navigation-core-v7.0.0-alpha.4-gitpkg",
     "@react-navigation/native": "github:brianaderer/react-navigation#react-navigation-native-v7.0.0-alpha.4-gitpkg",
     "@react-navigation/native-stack": "github:brianaderer/react-navigation#react-navigation-native-stack-v7.0.0-alpha.5-gitpkg",
