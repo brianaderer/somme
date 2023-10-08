@@ -59,6 +59,14 @@ const App: () => Node = () => {
                         outputRange: [layouts.screen.width, 0],
                       }),
                     },
+                    {
+                      translateX: next
+                        ? next.progress.interpolate({
+                            inputRange: [0, 1],
+                            outputRange: [0, -layouts.screen.width],
+                          })
+                        : 0,
+                    },
                   ],
                 },
               };
