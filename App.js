@@ -16,7 +16,11 @@ import StylesContext from './contexts/StylesContext';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {createStackNavigator} from '@react-navigation/stack';
 const Stack = createStackNavigator();
-import Home from './components/Home';
+import Identity from './components/Identity';
+import Visual from './components/Visual';
+import Nose from './components/Nose';
+import Palette from './components/Palette';
+import Conclusion from './components/Conclusion';
 import Counter from './components/Counter';
 //import Auth from './providers/Auth';
 
@@ -40,9 +44,9 @@ const App: () => Node = () => {
         {/*      backgroundColor: isDarkMode ? Colors.black : Colors.white,*/}
         {/*    }}>*/}
         <Stack.Navigator
-          initialRouteName="Home"
+          initialRouteName="Identity"
           screenOptions={{
-            // headerShown: false,
+            headerShown: false,
             gestureEnabled: true,
             gestureDirection: 'horizontal',
             cardStyleInterpolator: ({current, next, layouts}) => {
@@ -60,8 +64,31 @@ const App: () => Node = () => {
               };
             },
           }}>
-          <Stack.Screen component={Home} name={'Home'} />
-          <Stack.Screen component={Counter} name={'Counter'} />
+          <Stack.Screen
+            component={Identity}
+            name={'Identity'}
+            initialParams={{next: 'Visual'}}
+          />
+          <Stack.Screen
+            component={Visual}
+            name={'Visual'}
+            initialParams={{next: 'Nose'}}
+          />
+          <Stack.Screen
+            component={Nose}
+            name={'Nose'}
+            initialParams={{next: 'Palette'}}
+          />
+          <Stack.Screen
+            component={Palette}
+            name={'Palette'}
+            initialParams={{next: 'Conclusion'}}
+          />
+          <Stack.Screen
+            component={Conclusion}
+            name={'Conclusion'}
+            initialParams={{next: null}}
+          />
         </Stack.Navigator>
         {/*</View>*/}
         {/*</ScrollView>*/}
