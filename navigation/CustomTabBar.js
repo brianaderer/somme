@@ -1,5 +1,3 @@
-// CustomTabBar.js
-
 import React from 'react';
 import {View, Button} from 'react-native';
 import screenConfig from '../screens/screenConfig';
