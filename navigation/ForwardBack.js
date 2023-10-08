@@ -1,6 +1,5 @@
 import {Button, View} from 'react-native';
 import React from 'react';
-
 const ForwardBack: () => Node = props => {
   const {navigation, next} = props;
   return (

@@ -7,13 +7,14 @@ import {connect} from 'react-redux';
 import ForwardBack from '../navigation/ForwardBack';
 
 const Palette = props => {
-  const {route, navigation, count} = props;
+  const {next, navigation, count} = props;
   const style = useContext(StylesContext);
 
   return (
     <View style={{flex: 1}}>
       <View style={style.homeStyles}>
         <Text style={style.baseText}>Nose Screen {count.count}</Text>
+        <ForwardBack navigation={navigation} next={next} />
       </View>
     </View>
   );

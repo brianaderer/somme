@@ -11,6 +11,7 @@ const Tab = createBottomTabNavigator();
 export default function AppNavigator() {
   return (
     <Tab.Navigator
+      backBehavior={'order'}
       screenOptions={{
         headerShown: false,
       }}

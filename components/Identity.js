@@ -4,17 +4,17 @@ import StylesContext from '../contexts/StylesContext';
 import {bindActionCreators} from 'redux';
 import {changeCount} from '../actions/counts';
 import {connect} from 'react-redux';
-
+import ForwardBack from '../navigation/ForwardBack';
 
 const Identity = props => {
-  const {route, navigation, count} = props;
-  console.log(navigation);
+  const {next, navigation, count} = props;
   const style = useContext(StylesContext);
 
   return (
     <View style={{flex: 1}}>
       <View style={style.homeStyles}>
         <Text style={style.baseText}>Identity Screen {count.count}</Text>
+        <ForwardBack navigation={navigation} next={next} />
       </View>
     </View>
   );
