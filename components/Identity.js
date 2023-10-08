@@ -5,6 +5,7 @@ import {bindActionCreators} from 'redux';
 import {changeCount} from '../actions/counts';
 import {connect} from 'react-redux';
 import ForwardBack from '../navigation/ForwardBack';
+import BottomNav from '../navigation/BottomNav';
 
 const Identity: () => Node = props => {
   const {route, navigation, count} = props;

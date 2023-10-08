@@ -17,6 +17,8 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {createStackNavigator} from '@react-navigation/stack';
 const Stack = createStackNavigator();
 import ScreenConfig from './screens/ScreenConfig';
+import screenOptions from './screens/screenOptions';
+import BottomNav from './navigation/BottomNav';
 import Counter from './components/Counter';
 //import Auth from './providers/Auth';
 
@@ -30,44 +32,9 @@ const App: () => Node = () => {
   return (
     <StylesContext.Provider value={styles}>
       <NavigationContainer>
-        {/*<SafeAreaView style={backgroundStyle}>*/}
-        {/*  <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />*/}
-        {/*<ScrollView*/}
-        {/*  contentInsetAdjustmentBehavior="automatic"*/}
-        {/*  style={backgroundStyle}>*/}
-        {/*  <View*/}
-        {/*    style={{*/}
-        {/*      backgroundColor: isDarkMode ? Colors.black : Colors.white,*/}
-        {/*    }}>*/}
         <Stack.Navigator
           initialRouteName="Identity"
-          screenOptions={{
-            headerShown: false,
-            gestureEnabled: true,
-            gestureDirection: 'horizontal',
-            cardStyleInterpolator: ({current, next, layouts}) => {
-              return {
-                cardStyle: {
-                  transform: [
-                    {
-                      translateX: current.progress.interpolate({
-                        inputRange: [0, 1],
-                        outputRange: [layouts.screen.width, 0],
-                      }),
-                    },
-                    {
-                      translateX: next
-                        ? next.progress.interpolate({
-                            inputRange: [0, 1],
-                            outputRange: [0, -layouts.screen.width],
-                          })
-                        : 0,
-                    },
-                  ],
-                },
-              };
-            },
-          }}>
+          screenOptions={screenOptions}>
           {ScreenConfig.map(screen => (
             <Stack.Screen
               key={screen.name}
@@ -77,9 +44,6 @@ const App: () => Node = () => {
             />
           ))}
         </Stack.Navigator>
-        {/*</View>*/}
-        {/*</ScrollView>*/}
-        {/*</SafeAreaView>*/}
       </NavigationContainer>
     </StylesContext.Provider>
   );
