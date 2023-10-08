@@ -1,12 +1,26 @@
-import {Text, View} from 'react-native';
+import {Text, View, Button} from 'react-native';
 import React from 'react';
+import { bindActionCreators } from "redux";
+import { changeCount } from "../actions/counts";
+import { connect } from "react-redux";
 
-const Home: () => Node = ({route}) => {
+const Home: () => Node = ({route, navigation, count}) => {
   const style = route.params.styles;
   return (
     <View style={style.homeStyles}>
-      <Text style={style.baseText}>Home Screen</Text>
+      <Text style={style.baseText}>Home Screen {count.count}</Text>
+      <Button
+        title="Go to Counter"
+        onPress={() => navigation.navigate('Counter')}
+      />
     </View>
   );
 };
-export default Home;
+const mapStateToProps = state => ({
+  count: state.count,
+});
+const mapDispatchToProps = dispatch => {
+  const actions = bindActionCreators({changeCount}, dispatch);
+  return {actions};
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

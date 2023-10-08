@@ -43,7 +43,12 @@ const App: () => Node = () => {
       {/*    style={{*/}
       {/*      backgroundColor: isDarkMode ? Colors.black : Colors.white,*/}
       {/*    }}>*/}
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          initialParams={{styles: styles}}
+          component={Home}
+          name={'Home'}
+        />
         <Stack.Screen
           initialParams={{styles: styles}}
           component={Counter}
