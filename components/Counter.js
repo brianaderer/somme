@@ -1,12 +1,13 @@
-import React from 'react';
-import { Button, Text, View } from "react-native";
+import React, {useContext} from 'react';
+import StylesContext from '../contexts/StylesContext';
+import {Button, Text, View} from 'react-native';
 import {changeCount} from '../actions/counts';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 const Counter: () => Node = props => {
-  const {count, actions, route, navigation} = props;
-  const style = route.params.styles;
+  const {count, actions, navigation} = props;
+  const style = useContext(StylesContext);
 
   function decrementCount() {
     actions.changeCount(count.count - 1);

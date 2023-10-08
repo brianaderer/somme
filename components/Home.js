@@ -1,11 +1,12 @@
 import {Text, View, Button} from 'react-native';
-import React from 'react';
-import { bindActionCreators } from "redux";
-import { changeCount } from "../actions/counts";
-import { connect } from "react-redux";
+import React, {useContext} from 'react';
+import StylesContext from '../contexts/StylesContext';
+import {bindActionCreators} from 'redux';
+import {changeCount} from '../actions/counts';
+import {connect} from 'react-redux';
 
 const Home: () => Node = ({route, navigation, count}) => {
-  const style = route.params.styles;
+  const style = useContext(StylesContext);
   return (
     <View style={style.homeStyles}>
       <Text style={style.baseText}>Home Screen {count.count}</Text>
