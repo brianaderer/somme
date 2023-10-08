@@ -7,7 +7,8 @@ import {connect} from 'react-redux';
 import ForwardBack from '../navigation/ForwardBack';
 
 const Identity = props => {
-  const {next, navigation, count} = props;
+  const {navigation, count, route} = props;
+  const next = route.params.next;
   const style = useContext(StylesContext);
 
   return (

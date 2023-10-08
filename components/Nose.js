@@ -7,8 +7,9 @@ import {connect} from 'react-redux';
 import ForwardBack from '../navigation/ForwardBack';
 
 const Palette = props => {
-  const {next, navigation, count} = props;
+  const {route, navigation, count} = props;
   const style = useContext(StylesContext);
+  const next = route.params.next;
 
   return (
     <View style={{flex: 1}}>

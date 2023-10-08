@@ -8,8 +8,9 @@ import ForwardBack from '../navigation/ForwardBack';
 import CustomTabBar from '../navigation/CustomTabBar'; // <-- Import the custom tab bar here
 
 const Conclusion = props => {
-  const {next, navigation, count} = props;
+  const {route, navigation, count} = props;
   const style = useContext(StylesContext);
+  const next = route.params.next;
 
   return (
     <View style={{flex: 1}}>
