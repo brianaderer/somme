@@ -14,7 +14,7 @@ const Palette = props => {
   return (
     <View style={{flex: 1}}>
       <View style={style.homeStyles}>
-        <Text style={style.baseText}>Palette Screen {count.count}</Text>
+        <Text style={style.baseText}>Visual Screen {count.count}</Text>
       </View>
     </View>
   );

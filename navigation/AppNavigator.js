@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BottomNavigation } from 'react-native-paper';
+import {BottomNavigation} from 'react-native-paper';
 import screenConfig from '../screens/screenConfig';
 
 const AppNavigator = () => {
@@ -20,12 +20,12 @@ const AppNavigator = () => {
     screenConfig.reduce((acc, screen) => {
       acc[screen.name.toLowerCase()] = screen.component;
       return acc;
-    }, {})
+    }, {}),
   );
 
   return (
     <BottomNavigation
-      navigationState={{ index, routes }}
+      navigationState={{index, routes}}
       onIndexChange={setIndex}
       renderScene={renderScene}
     />
