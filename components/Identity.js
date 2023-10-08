@@ -4,10 +4,11 @@ import StylesContext from '../contexts/StylesContext';
 import {bindActionCreators} from 'redux';
 import {changeCount} from '../actions/counts';
 import {connect} from 'react-redux';
-import ForwardBack from '../navigation/ForwardBack';
+
 
 const Identity = props => {
   const {route, navigation, count} = props;
+  console.log(navigation);
   const style = useContext(StylesContext);
 
   return (

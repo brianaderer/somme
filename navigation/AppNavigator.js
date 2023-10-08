@@ -1,35 +1,75 @@
-import * as React from 'react';
+import React from 'react';
+import {View, StyleSheet, Text} from 'react-native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {BottomNavigation} from 'react-native-paper';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import screenConfig from '../screens/screenConfig';
+import Home from '../components/Home';
 
-const AppNavigator = () => {
-  const [index, setIndex] = React.useState(0);
+const Tab = createBottomTabNavigator();
 
-  // Convert your screenConfig into the required routes format
-  const [routes] = React.useState(
-    screenConfig.map(screen => ({
-      key: screen.name.toLowerCase(),
-      title: screen.name,
-      focusedIcon: 'heart', // placeholder icons, replace with your own
-      unfocusedIcon: 'heart-outline', // placeholder icons, replace with your own
-    })),
-  );
-
-  // Create a SceneMap from the screenConfig's components
-  const renderScene = BottomNavigation.SceneMap(
-    screenConfig.reduce((acc, screen) => {
-      acc[screen.name.toLowerCase()] = screen.component;
-      return acc;
-    }, {}),
-  );
-
+export default function AppNavigator() {
   return (
-    <BottomNavigation
-      navigationState={{index, routes}}
-      onIndexChange={setIndex}
-      renderScene={renderScene}
-    />
-  );
-};
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+      tabBar={({navigation, state, descriptors, insets}) => (
+        <BottomNavigation.Bar
+          navigationState={state}
+          safeAreaInsets={insets}
+          onTabPress={({route, preventDefault}) => {
+            const event = navigation.emit({
+              type: 'tabPress',
+              target: route.key,
+              canPreventDefault: true,
+            });
 
-export default AppNavigator;
+            if (!event.defaultPrevented) {
+              navigation.navigate(route.name);
+            }
+          }}
+          renderIcon={({route, focused, color}) => {
+            const iconName = focused
+              ? route.params.focusedIcon
+              : route.params.unfocusedIcon;
+            return <Icon name={iconName} size={24} color={color} />;
+          }}
+          getLabelText={({route}) => {
+            const {options} = descriptors[route.key];
+            const label =
+              options.tabBarLabel !== undefined
+                ? options.tabBarLabel
+                : options.title !== undefined
+                ? options.title
+                : route.title;
+
+            return label;
+          }}
+        />
+      )}>
+      {screenConfig.map(screen => (
+        <Tab.Screen
+          key={screen.name}
+          name={screen.name}
+          component={screen.component}
+          initialParams={{
+            focusedIcon: 'heart', // You can customize this based on your screenConfig
+            unfocusedIcon: 'heart-outline', // You can customize this based on your screenConfig
+          }}
+          options={{
+            tabBarLabel: screen.name,
+          }}
+        />
+      ))}
+    </Tab.Navigator>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
