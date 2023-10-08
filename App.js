@@ -15,6 +15,7 @@ import {styles} from './assets/styles';
 import StylesContext from './contexts/StylesContext';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import AppNavigator from './navigation/AppNavigator';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -25,9 +26,11 @@ const App: () => Node = () => {
 
   return (
     <StylesContext.Provider value={styles}>
-      <NavigationContainer>
-        <AppNavigator />
-      </NavigationContainer>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <AppNavigator />
+        </NavigationContainer>
+      </SafeAreaProvider>
     </StylesContext.Provider>
   );
 };

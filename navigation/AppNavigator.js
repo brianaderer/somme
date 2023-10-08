@@ -1,42 +1,34 @@
-import React from 'react';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-import {createStackNavigator} from '@react-navigation/stack';
+import * as React from 'react';
+import { BottomNavigation } from 'react-native-paper';
 import screenConfig from '../screens/screenConfig';
-import screenOptions from '../screens/screenOptions';
-import {View} from 'react-native';
-
-const Tab = createMaterialBottomTabNavigator();
-const Stack = createStackNavigator();
-
-const BottomTabs = () => {
-  return (
-    <Tab.Navigator
-      backBehavior="order"
-      initialRouteName="Identity"
-      activeColor="white"
-      inactiveColor="#f0edf6"
-      barStyle={{backgroundColor: '#694fad'}}>
-      {screenConfig.map(screen => (
-        <Tab.Screen
-          key={screen.name}
-          name={screen.name}
-          component={screen.component}
-          initialParams={{next: screen.next}}
-          options={{
-            tabBarIcon: () => null,
-          }}
-        />
-      ))}
-    </Tab.Navigator>
-  );
-};
 
 const AppNavigator = () => {
+  const [index, setIndex] = React.useState(0);
+
+  // Convert your screenConfig into the required routes format
+  const [routes] = React.useState(
+    screenConfig.map(screen => ({
+      key: screen.name.toLowerCase(),
+      title: screen.name,
+      focusedIcon: 'heart', // placeholder icons, replace with your own
+      unfocusedIcon: 'heart-outline', // placeholder icons, replace with your own
+    })),
+  );
+
+  // Create a SceneMap from the screenConfig's components
+  const renderScene = BottomNavigation.SceneMap(
+    screenConfig.reduce((acc, screen) => {
+      acc[screen.name.toLowerCase()] = screen.component;
+      return acc;
+    }, {})
+  );
+
   return (
-    <Stack.Navigator screenOptions={screenOptions}>
-      <Stack.Screen name="Tabs" component={BottomTabs} />
-      {/* Other Stack.Screens if necessary */}
-    </Stack.Navigator>
+    <BottomNavigation
+      navigationState={{ index, routes }}
+      onIndexChange={setIndex}
+      renderScene={renderScene}
+    />
   );
 };
 

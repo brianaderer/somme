@@ -14,7 +14,6 @@ const Identity = props => {
     <View style={{flex: 1}}>
       <View style={style.homeStyles}>
         <Text style={style.baseText}>Identity Screen {count.count}</Text>
-        <ForwardBack navigation={navigation} next={route.params.next} />
       </View>
     </View>
   );
