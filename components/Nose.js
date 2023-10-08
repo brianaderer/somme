@@ -6,21 +6,27 @@ import {changeCount} from '../actions/counts';
 import {connect} from 'react-redux';
 import ForwardBack from '../navigation/ForwardBack';
 
-const Nose: () => Node = props => {
+const Palette = props => {
   const {route, navigation, count} = props;
   const style = useContext(StylesContext);
+
   return (
-    <View style={style.homeStyles}>
-      <Text style={style.baseText}>Nose Screen {count.count}</Text>
-      <ForwardBack navigation={navigation} next={route.params.next} />
+    <View style={{flex: 1}}>
+      <View style={style.homeStyles}>
+        <Text style={style.baseText}>Palette Screen {count.count}</Text>
+        <ForwardBack navigation={navigation} next={route.params.next} />
+      </View>
     </View>
   );
 };
+
 const mapStateToProps = state => ({
   count: state.count,
 });
+
 const mapDispatchToProps = dispatch => {
   const actions = bindActionCreators({changeCount}, dispatch);
   return {actions};
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Nose);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Palette);

@@ -4,7 +4,7 @@ import Nose from '../components/Nose';
 import Palette from '../components/Palette';
 import Conclusion from '../components/Conclusion';
 
-const ScreenConfig = [
+const screenConfig = [
   {component: Identity, name: 'Identity', next: 'Visual'},
   {component: Visual, name: 'Visual', next: 'Nose'},
   {component: Nose, name: 'Nose', next: 'Palette'},
@@ -12,4 +12,4 @@ const ScreenConfig = [
   {component: Conclusion, name: 'Conclusion', next: null},
 ];
 
-export default ScreenConfig;
+export default screenConfig;
