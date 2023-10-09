@@ -7,24 +7,22 @@ const ForwardBack: () => Node = props => {
   const style = useContext(StylesContext);
   const {navigation, next} = props;
   return (
-    <View>
+    <View style={style.container}>
       {next != null && (
         <Button
           icon="arrow-right-bold"
           mode="outlined"
           onPress={() => navigation.navigate(next)}
-          className={'fixed right-0 bottom-1/2 text-red-500 bg-red-500'}>
-          {next}
-        </Button>
+          style={[style.rightButton, style.button]}
+        />
       )}
       {navigation.canGoBack() && (
         <Button
           icon="arrow-left-bold"
           mode="outlined"
           onPress={() => navigation.goBack()}
-          className={'fixed right-0 bottom-1/2'}>
-          Back
-        </Button>
+          style={[style.button, style.leftButton]}
+        />
       )}
     </View>
   );
