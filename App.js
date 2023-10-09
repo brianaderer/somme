@@ -17,6 +17,10 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import AppNavigator from './navigation/AppNavigator';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
+import {LogBox} from 'react-native';
+
+LogBox.ignoreLogs(['Require cycle:']);
+
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
 

@@ -5,11 +5,41 @@ import Palette from '../components/Palette';
 import Conclusion from '../components/Conclusion';
 
 const screenConfig = [
-  {component: Identity, name: 'Identity', next: 'Visual'},
-  {component: Visual, name: 'Visual', next: 'Nose'},
-  {component: Nose, name: 'Nose', next: 'Palette'},
-  {component: Palette, name: 'Palette', next: 'Conclusion'},
-  {component: Conclusion, name: 'Conclusion', next: null},
+  {
+    component: Identity,
+    name: 'Identity',
+    next: 'Visual',
+    focusedIcon: 'bullseye-arrow',
+    unfocusedIcon: 'bullseye',
+  },
+  {
+    component: Visual,
+    name: 'Visual',
+    next: 'Nose',
+    focusedIcon: 'eye',
+    unfocusedIcon: 'eye-outline',
+  },
+  {
+    component: Nose,
+    name: 'Nose',
+    next: 'Palette',
+    focusedIcon: 'pot-steam',
+    unfocusedIcon: 'pot-outline',
+  },
+  {
+    component: Palette,
+    name: 'Palette',
+    next: 'Conclusion',
+    focusedIcon: 'bottle-wine',
+    unfocusedIcon: 'bottle-wine-outline',
+  },
+  {
+    component: Conclusion,
+    name: 'Conclusion',
+    next: null,
+    focusedIcon: 'arrow-collapse-down',
+    unfocusedIcon: 'arrow-down',
+  },
 ];
 
 export default screenConfig;

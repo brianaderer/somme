@@ -49,20 +49,24 @@ export default function AppNavigator() {
           }}
         />
       )}>
-      {screenConfig.map(screen => (
-        <Tab.Screen
-          key={screen.name}
-          name={screen.name}
-          component={screen.component}
-          initialParams={{
-            focusedIcon: 'heart', // You can customize this based on your screenConfig
-            unfocusedIcon: 'heart-outline', // You can customize this based on your screenConfig
-          }}
-          options={{
-            tabBarLabel: screen.name,
-          }}
-        />
-      ))}
+      {screenConfig.map(screen => {
+        console.log(screen.focusedIcon); // This will log the current screen object in each iteration
+
+        return (
+          <Tab.Screen
+            key={screen.name}
+            name={screen.name}
+            component={screen.component}
+            initialParams={{
+              focusedIcon: screen?.focusedIcon || 'heart',
+              unfocusedIcon: screen?.unfocusedIcon || 'heart-outline',
+            }}
+            options={{
+              tabBarLabel: screen.name,
+            }}
+          />
+        );
+      })}
     </Tab.Navigator>
   );
 }
