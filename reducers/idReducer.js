@@ -2,7 +2,7 @@ import {ID_CHANGE} from '../constants';
 const initialState = {
   count: 0,
 };
-const countReducer = (state = initialState, action) => {
+const idReducer = (state = initialState, action) => {
   switch (action.type) {
     case ID_CHANGE:
       return {
@@ -13,4 +13,4 @@ const countReducer = (state = initialState, action) => {
       return state;
   }
 };
-export default countReducer;
+export default idReducer;
