@@ -11,7 +11,7 @@ const ForwardBack: () => Node = props => {
       {next != null && (
         <Button
           icon="arrow-right-bold"
-          mode="outlined"
+          mode="text"
           onPress={() => navigation.navigate(next)}
           style={[style.rightButton, style.button]}
         />
@@ -19,7 +19,7 @@ const ForwardBack: () => Node = props => {
       {navigation.canGoBack() && (
         <Button
           icon="arrow-left-bold"
-          mode="outlined"
+          mode="text"
           onPress={() => navigation.goBack()}
           style={[style.button, style.leftButton]}
         />

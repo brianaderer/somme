@@ -1,10 +1,10 @@
-import {COUNTER_CHANGE} from '../constants';
+import {ID_CHANGE} from '../constants';
 const initialState = {
   count: 0,
 };
 const countReducer = (state = initialState, action) => {
   switch (action.type) {
-    case COUNTER_CHANGE:
+    case ID_CHANGE:
       return {
         ...state,
         count: action.payload,

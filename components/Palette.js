@@ -15,7 +15,7 @@ const Palette = props => {
     <View style={{flex: 1}}>
       <View style={style.homeStyles}>
         <Text style={style.baseText}>Palette Screen {count.count}</Text>
-        <ForwardBack navigation={navigation} next={next} />
+        {/*<ForwardBack navigation={navigation} next={next} />*/}
       </View>
     </View>
   );
