@@ -6,7 +6,8 @@ import {bindActionCreators} from 'redux';
 import {changeId} from '../actions/id';
 import {connect} from 'react-redux';
 import ForwardBack from '../navigation/ForwardBack';
-import CameraModule from "../modules/CameraModule";
+import CameraModule from '../modules/CameraModule';
+import ModalModule from '../module/ModalModule';
 
 const Identity = props => {
   const {navigation, id, route, actions} = props;
@@ -37,7 +38,9 @@ const Identity = props => {
           value={id.cuvee}
           onChangeText={text => actions.changeId({...id, cuvee: text})}
         />
-        <CameraModule />
+        <ModalModule>
+          <CameraModule/>
+        </ModalModule>
         {/*<ForwardBack navigation={navigation} next={next} />*/}
       </View>
     </View>
