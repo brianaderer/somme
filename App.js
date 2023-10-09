@@ -15,6 +15,8 @@ import StylesContext from './contexts/StylesContext';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import AppNavigator from './navigation/AppNavigator';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {GluestackUIProvider, Text} from '@gluestack-ui/themed';
+import {config} from '@gluestack-ui/config';
 
 import {LogBox} from 'react-native';
 
@@ -30,9 +32,11 @@ const App = () => {
   return (
     <StylesContext.Provider value={styles}>
       <SafeAreaProvider>
-        <NavigationContainer>
-          <AppNavigator />
-        </NavigationContainer>
+        <GluestackUIProvider config={config}>
+          <NavigationContainer>
+            <AppNavigator />
+          </NavigationContainer>
+        </GluestackUIProvider>
       </SafeAreaProvider>
     </StylesContext.Provider>
   );
