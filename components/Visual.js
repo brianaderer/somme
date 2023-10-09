@@ -4,7 +4,7 @@ import StylesContext from '../contexts/StylesContext';
 import {bindActionCreators} from 'redux';
 import {changeCount} from '../actions/counts';
 import {connect} from 'react-redux';
-import ModalModule from "../module/ModalModule";
+import ModalModule from '../modules/ModalModule';
 import ForwardBack from '../navigation/ForwardBack';
 import CustomTabBar from '../navigation/CustomTabBar'; // <-- Import the custom tab bar here
 
@@ -16,7 +16,7 @@ const Palette = props => {
   return (
     <View style={{flex: 1}}>
       <View style={style.homeStyles}>
-        <ModalModule></ModalModule>
+        <ModalModule />
         <Text style={style.baseText}>Visual Screen</Text>
         {/*<ForwardBack navigation={navigation} next={next} />*/}
       </View>
