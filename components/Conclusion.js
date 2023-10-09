@@ -15,7 +15,7 @@ const Conclusion = props => {
   return (
     <View style={{flex: 1}}>
       <View style={style.homeStyles}>
-        <Text style={style.baseText}>Conclusion Screen {count.count}</Text>
+        <Text style={style.baseText}>Conclusion Screen</Text>
         {/*<ForwardBack navigation={navigation} next={next} />*/}
       </View>
     </View>
