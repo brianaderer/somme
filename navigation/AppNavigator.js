@@ -50,8 +50,6 @@ export default function AppNavigator() {
         />
       )}>
       {screenConfig.map(screen => {
-        console.log(screen.focusedIcon); // This will log the current screen object in each iteration
-
         return (
           <Tab.Screen
             key={screen.name}

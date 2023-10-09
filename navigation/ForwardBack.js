@@ -12,7 +12,8 @@ const ForwardBack: () => Node = props => {
         <Button
           icon="arrow-right-bold"
           mode="outlined"
-          onPress={() => navigation.navigate(next)}>
+          onPress={() => navigation.navigate(next)}
+          className={'fixed right-0 bottom-1/2 text-red-500 bg-red-500'}>
           {next}
         </Button>
       )}
@@ -21,7 +22,7 @@ const ForwardBack: () => Node = props => {
           icon="arrow-left-bold"
           mode="outlined"
           onPress={() => navigation.goBack()}
-          style={style.navButton}>
+          className={'fixed right-0 bottom-1/2'}>
           Back
         </Button>
       )}
