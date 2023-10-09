@@ -60,6 +60,7 @@ export default function AppNavigator() {
             initialParams={{
               focusedIcon: screen?.focusedIcon || 'heart',
               unfocusedIcon: screen?.unfocusedIcon || 'heart-outline',
+              next: screen.next,
             }}
             options={{
               tabBarLabel: screen.name,

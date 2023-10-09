@@ -26,4 +26,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     color: 'black',
   },
+  navButton: {
+    color: 'red',
+  },
 });
