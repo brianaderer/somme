@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "SommMe.app"
-               BlueprintName = "SommMe"
-               ReferencedContainer = "container:SommMe.xcodeproj">
+               BuildableName = "somm725.app"
+               BlueprintName = "somm725"
+               ReferencedContainer = "container:somm725.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "SommMeTests.xctest"
-               BlueprintName = "SommMeTests"
-               ReferencedContainer = "container:SommMe.xcodeproj">
+               BuildableName = "somm725Tests.xctest"
+               BlueprintName = "somm725Tests"
+               ReferencedContainer = "container:somm725.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "SommMe.app"
-            BlueprintName = "SommMe"
-            ReferencedContainer = "container:SommMe.xcodeproj">
+            BuildableName = "somm725.app"
+            BlueprintName = "somm725"
+            ReferencedContainer = "container:somm725.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "SommMe.app"
-            BlueprintName = "SommMe"
-            ReferencedContainer = "container:SommMe.xcodeproj">
+            BuildableName = "somm725.app"
+            BlueprintName = "somm725"
+            ReferencedContainer = "container:somm725.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

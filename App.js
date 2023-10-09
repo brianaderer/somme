@@ -6,36 +6,21 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import type {Node} from 'react';
+import React from 'react';;
 import 'react-native-gesture-handler';
-import {useColorScheme} from 'react-native';
-import {styles} from './assets/styles';
-import StylesContext from './contexts/StylesContext';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import AppNavigator from './navigation/AppNavigator';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
+import { Text, useColorScheme } from "react-native";
+
 
 import {LogBox} from 'react-native';
 
 LogBox.ignoreLogs(['Require cycle:']);
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+const App = () => {
 
   return (
-    <StylesContext.Provider value={styles}>
-      <SafeAreaProvider>
-        <NavigationContainer>
-          <AppNavigator />
-        </NavigationContainer>
-      </SafeAreaProvider>
-    </StylesContext.Provider>
+    <Text>
+      Foo
+    </Text>
   );
 };
 

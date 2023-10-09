@@ -9,11 +9,11 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>SommMe</string>
+	<string>somm725</string>
 	<key>PROJECT_ID</key>
-	<string>sommme-8f45f</string>
+	<string>somm725-8f45f</string>
 	<key>STORAGE_BUCKET</key>
-	<string>sommme-8f45f.appspot.com</string>
+	<string>somm725-8f45f.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
