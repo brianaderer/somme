@@ -16,7 +16,7 @@ import {
 } from '@gluestack-ui/themed';
 
 const ModalModule = props => {
-  const {children, title, button} = props;
+  const {children, title, button, showButton} = props;
   const [showModal, setShowModal] = React.useState(false);
   const [size, setSize] = React.useState(undefined);
   const sizes = ['xs', 'sm', 'md', 'lg', 'full'];
@@ -25,11 +25,20 @@ const ModalModule = props => {
     setShowModal(true);
     setSize(currentSize);
   };
+  const closeModal = () => {
+    setShowModal(false);
+  };
+  const enhancedChildren = React.Children.map(children, child =>
+    React.cloneElement(child, {closeModal}),
+  );
+
   return (
     <Center>
-      <Button onPress={() => handleClick('lg')} title={button}>
-        <ButtonText>{title}</ButtonText>
-      </Button>
+      {!showButton && (
+        <Button onPress={() => handleClick('lg')} title={button}>
+          <ButtonText>{title}</ButtonText>
+        </Button>
+      )}
       <Modal
         isOpen={showModal}
         onClose={() => {
@@ -46,7 +55,7 @@ const ModalModule = props => {
             </ModalCloseButton>
           </ModalHeader>
           <ModalBody>
-            <Center h={400}>{children}</Center>
+            <Center h={400}>{enhancedChildren}</Center>
           </ModalBody>
           <ModalFooter>
             <Button

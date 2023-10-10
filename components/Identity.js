@@ -8,12 +8,15 @@ import {connect} from 'react-redux';
 import ForwardBack from '../navigation/ForwardBack';
 import CameraModule from '../modules/CameraModule';
 import ModalModule from '../modules/ModalModule';
-import { Button, ButtonIcon, EditIcon } from "@gluestack-ui/themed";
+import {Button, ButtonIcon, EditIcon, HStack} from '@gluestack-ui/themed';
 
 const Identity = props => {
   const {navigation, id, route, actions} = props;
   const next = route.params.next;
   const style = useContext(StylesContext);
+  const deleteImage = () => {
+    actions.changeId({...id, label: ''});
+  };
 
   return (
     <View style={{flex: 1}}>
@@ -41,21 +44,39 @@ const Identity = props => {
         />
         {id.label && (
           <>
-            <Button
-              borderRadius="$full"
-              bg="$indigo600"
-              borderColor="$indigo600">
-              {/* EditIcon is imported from 'lucide-react-native' */}
-              <ButtonIcon as={EditIcon} />
-            </Button>
-
             <Image
               source={{uri: id.label}}
               style={{width: 300, height: 300, marginTop: 20}}
             />
+            <HStack>
+              <Button
+                borderRadius="$full"
+                size="s"
+                p="2"
+                bg="$indigo600"
+                borderColor="$indigo600"
+                w="$12"
+                h="$12"
+                onPress={deleteImage}>
+                {/* EditIcon is imported from 'lucide-react-native' */}
+                <ButtonIcon as={EditIcon} />
+              </Button>
+              <Button
+                borderRadius="$full"
+                size="s"
+                p="2"
+                bg="$indigo600"
+                borderColor="$indigo600"
+                w="$12"
+                h="$12"
+                onPress={deleteImage}>
+                {/* EditIcon is imported from 'lucide-react-native' */}
+                <ButtonIcon as={EditIcon} />
+              </Button>
+            </HStack>
           </>
         )}
-        <ModalModule title={'Capture Label'}>
+        <ModalModule showButton={id.label} title={'Capture Label'}>
           <CameraModule style={{flex: 1}} actions={actions} state={id} />
         </ModalModule>
         {/*<ForwardBack navigation={navigation} next={next} />*/}
