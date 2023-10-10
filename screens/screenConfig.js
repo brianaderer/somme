@@ -9,8 +9,8 @@ const screenConfig = [
     component: Identity,
     name: 'Identity',
     next: 'Visual',
-    focusedIcon: 'bullseye-arrow',
-    unfocusedIcon: 'bullseye',
+    focusedIcon: 'barcode-scan',
+    unfocusedIcon: 'barcode',
   },
   {
     component: Visual,

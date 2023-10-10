@@ -8,6 +8,7 @@ import {connect} from 'react-redux';
 import ForwardBack from '../navigation/ForwardBack';
 import CameraModule from '../modules/CameraModule';
 import ModalModule from '../modules/ModalModule';
+import { Button, ButtonText } from "@gluestack-ui/themed";
 
 const Identity = props => {
   const {navigation, id, route, actions} = props;
@@ -38,7 +39,7 @@ const Identity = props => {
           value={id.cuvee}
           onChangeText={text => actions.changeId({...id, cuvee: text})}
         />
-        <ModalModule>
+        <ModalModule title={'Capture Label'}>
           <CameraModule style={'flex:1,'} />
         </ModalModule>
         {/*<ForwardBack navigation={navigation} next={next} />*/}

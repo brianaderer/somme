@@ -18,7 +18,7 @@ import {
 } from '@gluestack-ui/themed';
 
 const ModalModule = props => {
-  const {children} = props;
+  const {children, title, button} = props;
   const [showModal, setShowModal] = React.useState(false);
   const [size, setSize] = React.useState(undefined);
   const sizes = ['xs', 'sm', 'md', 'lg', 'full'];
@@ -29,8 +29,8 @@ const ModalModule = props => {
   };
   return (
     <Center>
-      <Button onPress={() => handleClick('lg')} title={'OpenCamera'}>
-        <ButtonText>Camera</ButtonText>
+      <Button onPress={() => handleClick('lg')} title={button}>
+        <ButtonText>{title}</ButtonText>
       </Button>
       <Modal
         isOpen={showModal}
@@ -42,7 +42,7 @@ const ModalModule = props => {
         <ModalBackdrop />
         <ModalContent>
           <ModalHeader>
-            <Heading size="lg">Delete Folder</Heading>
+            <Heading size="lg">{title}</Heading>
             <ModalCloseButton>
               <Icon as={CloseIcon} />
             </ModalCloseButton>
@@ -61,25 +61,6 @@ const ModalModule = props => {
               }}
               title={'Secondary'}>
               <ButtonText>Cancel</ButtonText>
-            </Button>
-            <Button
-              size="sm"
-              action="primary"
-              borderWidth="$0"
-              onPress={() => {
-                setShowModal(false);
-              }}
-              sx={{
-                bg: '$error700',
-                ':hover': {
-                  bg: '$error800',
-                },
-                ':active': {
-                  bg: '$error900',
-                },
-              }}
-              title={'tertiary'}>
-              <ButtonText>Explore</ButtonText>
             </Button>
           </ModalFooter>
         </ModalContent>
