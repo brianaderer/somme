@@ -27,7 +27,6 @@ const CameraModule = props => {
             style={{width: 300, height: 300, marginTop: 20}}
           />
           <Center>
-            <Text>Does this look good to you?</Text>
             <HStack>
               <Button
                 size="sm"
