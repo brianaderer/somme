@@ -49,7 +49,6 @@ const Identity = props => {
 };
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     id: state.state.id,
   };
