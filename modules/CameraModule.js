@@ -4,6 +4,7 @@ import {View, Image} from 'react-native';
 import {Button, ButtonText, Center, Text, HStack} from '@gluestack-ui/themed';
 
 const CameraModule = props => {
+  const {actions, state} = props;
   const cameraRef = useRef(null);
   const [capturedImageUri, setCapturedImageUri] = useState(null);
 
@@ -15,6 +16,9 @@ const CameraModule = props => {
   }
   const resetImage = () => {
     setCapturedImageUri('');
+  };
+  const saveImage = () => {
+    actions.changeId({...state.id, label: capturedImageUri});
   };
 
   return (
@@ -32,7 +36,7 @@ const CameraModule = props => {
                 size="sm"
                 action="primary"
                 borderWidth="$0"
-                onPress={handleCapture}
+                onPress={saveImage}
                 sx={{
                   bg: '$error700',
                   ':hover': {

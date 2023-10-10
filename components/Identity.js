@@ -1,4 +1,4 @@
-import {Text, View} from 'react-native';
+import {Image, Text, View} from 'react-native';
 import React, {useContext} from 'react';
 import {TextInput} from 'react-native-paper';
 import StylesContext from '../contexts/StylesContext';
@@ -8,7 +8,7 @@ import {connect} from 'react-redux';
 import ForwardBack from '../navigation/ForwardBack';
 import CameraModule from '../modules/CameraModule';
 import ModalModule from '../modules/ModalModule';
-import { Button, ButtonText } from "@gluestack-ui/themed";
+import { Button, ButtonIcon, EditIcon } from "@gluestack-ui/themed";
 
 const Identity = props => {
   const {navigation, id, route, actions} = props;
@@ -39,8 +39,24 @@ const Identity = props => {
           value={id.cuvee}
           onChangeText={text => actions.changeId({...id, cuvee: text})}
         />
+        {id.label && (
+          <>
+            <Button
+              borderRadius="$full"
+              bg="$indigo600"
+              borderColor="$indigo600">
+              {/* EditIcon is imported from 'lucide-react-native' */}
+              <ButtonIcon as={EditIcon} />
+            </Button>
+
+            <Image
+              source={{uri: id.label}}
+              style={{width: 300, height: 300, marginTop: 20}}
+            />
+          </>
+        )}
         <ModalModule title={'Capture Label'}>
-          <CameraModule style={'flex:1,'} />
+          <CameraModule style={{flex: 1}} actions={actions} state={id} />
         </ModalModule>
         {/*<ForwardBack navigation={navigation} next={next} />*/}
       </View>

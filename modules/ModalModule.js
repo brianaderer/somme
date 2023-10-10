@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Text,
   ButtonText,
   Center,
   Heading,
@@ -11,7 +10,6 @@ import {
   ModalContent,
   ModalFooter,
   ModalHeader,
-  VStack,
   Icon,
   CloseIcon,
   Button,
