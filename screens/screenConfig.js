@@ -37,8 +37,8 @@ const screenConfig = [
     component: Conclusion,
     name: 'Conclusion',
     next: null,
-    focusedIcon: 'arrow-collapse-down',
-    unfocusedIcon: 'arrow-down',
+    focusedIcon: 'bullseye-arrow',
+    unfocusedIcon: 'bullseye',
   },
 ];
 
