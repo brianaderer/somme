@@ -64,7 +64,6 @@ const ModalModule = props => {
             <Button
               scheme="outline"
               size="sm"
-              action="secondary"
               mr="$3"
               onPress={() => {
                 setShowModal(false);

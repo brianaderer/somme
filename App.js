@@ -15,8 +15,8 @@ import StylesContext from './contexts/StylesContext';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import AppNavigator from './navigation/AppNavigator';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import {GluestackUIProvider, Text} from '@gluestack-ui/themed';
-import {config} from '@gluestack-ui/config';
+import {GluestackUIProvider} from '@gluestack-ui/themed';
+import {config} from './config/gluestack-ui.config'; // Relative path to your ejected theme configuration
 
 import {LogBox} from 'react-native';
 

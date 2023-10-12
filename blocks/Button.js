@@ -11,8 +11,10 @@ export const Button = styled(
       scheme: {
         solid: {bg: '$backgroundLight100'},
         outline: {
+          bg: '$sommeOffWhite',
           borderWidth: '$1',
-          borderColor: '$borderLight100',
+          borderColor: '$sommeTertiary',
+          color: '$sommeTextPrimary',
         },
       },
       flush: {
