@@ -1,7 +1,9 @@
 import React, {useRef, useState} from 'react';
 import {Camera, CameraType} from 'react-native-camera-kit';
 import {View, Image} from 'react-native';
-import {Button, ButtonText, Center, Text, HStack} from '@gluestack-ui/themed';
+import {Center, HStack} from '@gluestack-ui/themed';
+import {Button} from '../blocks/Button';
+import {ButtonText} from '../blocks/ButtonText';
 
 const CameraModule = props => {
   const {actions, state, closeModal} = props;
@@ -38,15 +40,6 @@ const CameraModule = props => {
                 action="primary"
                 borderWidth="$0"
                 onPress={saveImage}
-                sx={{
-                  bg: '$error700',
-                  ':hover': {
-                    bg: '$error800',
-                  },
-                  ':active': {
-                    bg: '$error900',
-                  },
-                }}
                 title={'keep'}>
                 <ButtonText>Keep</ButtonText>
               </Button>
@@ -55,15 +48,6 @@ const CameraModule = props => {
                 action="primary"
                 borderWidth="$0"
                 onPress={resetImage}
-                sx={{
-                  bg: '$error700',
-                  ':hover': {
-                    bg: '$error800',
-                  },
-                  ':active': {
-                    bg: '$error900',
-                  },
-                }}
                 title={'try again'}>
                 <ButtonText>Try Again</ButtonText>
               </Button>
@@ -81,18 +65,10 @@ const CameraModule = props => {
           <Button
             size="sm"
             action="primary"
-            borderWidth="$0"
             onPress={handleCapture}
-            sx={{
-              bg: '$error700',
-              ':hover': {
-                bg: '$error800',
-              },
-              ':active': {
-                bg: '$error900',
-              },
-            }}
-            title={'tertiary'}>
+            title={'tertiary'}
+            scheme={'outline'}
+            flush={'top'}>
             <ButtonText>Capture</ButtonText>
           </Button>
         </>
