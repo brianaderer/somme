@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  ButtonText,
   Center,
   Heading,
   Modal,
@@ -12,8 +11,9 @@ import {
   ModalHeader,
   Icon,
   CloseIcon,
-  Button,
 } from '@gluestack-ui/themed';
+import {Button} from '../blocks/Button';
+import {ButtonText} from '../blocks/ButtonText';
 
 const ModalModule = props => {
   const {children, title, button, showButton} = props;
@@ -35,7 +35,10 @@ const ModalModule = props => {
   return (
     <Center>
       {!showButton && (
-        <Button onPress={() => handleClick('lg')} title={button}>
+        <Button
+          scheme={'outline'}
+          onPress={() => handleClick('lg')}
+          title={button}>
           <ButtonText>{title}</ButtonText>
         </Button>
       )}
@@ -59,7 +62,7 @@ const ModalModule = props => {
           </ModalBody>
           <ModalFooter>
             <Button
-              variant="outline"
+              scheme="outline"
               size="sm"
               action="secondary"
               mr="$3"

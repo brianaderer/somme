@@ -1,9 +1,9 @@
 import React, {useRef, useState} from 'react';
 import {Camera, CameraType} from 'react-native-camera-kit';
-import {View, Image} from 'react-native';
-import {Center, HStack} from '@gluestack-ui/themed';
+import {Center, HStack, View, Image, ButtonIcon} from '@gluestack-ui/themed';
 import {Button} from '../blocks/Button';
 import {ButtonText} from '../blocks/ButtonText';
+import {StyledIcon} from '../blocks/StyledIcon';
 
 const CameraModule = props => {
   const {actions, state, closeModal} = props;
@@ -31,22 +31,26 @@ const CameraModule = props => {
         <>
           <Image
             source={{uri: capturedImageUri}}
-            style={{width: 300, height: 300, marginTop: 20}}
+            w={'$80'}
+            h={'$80'}
+            alt={''}
           />
           <Center>
             <HStack>
               <Button
+                w={'$40'}
+                scheme={'outline'}
+                flush={'topRight'}
                 size="sm"
-                action="primary"
-                borderWidth="$0"
                 onPress={saveImage}
                 title={'keep'}>
                 <ButtonText>Keep</ButtonText>
               </Button>
               <Button
+                w={'$40'}
+                flush={'topLeft'}
+                scheme={'outline'}
                 size="sm"
-                action="primary"
-                borderWidth="$0"
                 onPress={resetImage}
                 title={'try again'}>
                 <ButtonText>Try Again</ButtonText>
@@ -69,7 +73,12 @@ const CameraModule = props => {
             title={'tertiary'}
             scheme={'outline'}
             flush={'top'}>
-            <ButtonText>Capture</ButtonText>
+            <Center>
+              <HStack>
+                <StyledIcon size={30} name={'camera'} color={'black'} />
+                <ButtonText alignSelf={'center'}>Capture</ButtonText>
+              </HStack>
+            </Center>
           </Button>
         </>
       )}

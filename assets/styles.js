@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
     borderRadius: 2000,
     aspectRatio: 1,
     position: 'absolute',
-    bottom: '50%', // This may not work perfectly. You might need to adjust using numeric values.
+    bottom: '50%',
   },
   rightButton: {
     right: 0,
