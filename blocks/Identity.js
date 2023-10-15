@@ -8,7 +8,8 @@ import {connect} from 'react-redux';
 import ForwardBack from '../navigation/ForwardBack';
 import CameraModule from '../modules/CameraModule';
 import ModalModule from '../modules/ModalModule';
-import {Button, ButtonIcon, EditIcon, HStack} from '@gluestack-ui/themed';
+import {ButtonIcon, EditIcon, HStack} from '@gluestack-ui/themed';
+import {Button} from '../components/Button';
 
 const Identity = props => {
   const {navigation, id, route, actions} = props;
@@ -40,38 +41,42 @@ const Identity = props => {
           onChangeText={text => actions.changeId({...id, cuvee: text})}
         />
         {id.label && (
-          <>
+          <View
+            style={{
+              position: 'relative',
+              width: 300,
+              height: 300,
+              marginTop: 20,
+            }}>
             <Image
               source={{uri: id.label}}
-              style={{width: 300, height: 300, marginTop: 20}}
+              style={{width: '100%', height: '100%'}}
             />
-            <HStack>
+            <HStack
+              style={{position: 'absolute', bottom: 10, right: 10, zIndex: 1}}>
               <Button
+                scheme={'round'}
                 borderRadius="$full"
                 size="s"
                 p="2"
-                bg="$indigo600"
-                borderColor="$indigo600"
                 w="$12"
                 h="$12"
+                style={{marginRight: 8}}
                 onPress={deleteImage}>
-                {/* EditIcon is imported from 'lucide-react-native' */}
                 <ButtonIcon as={EditIcon} />
               </Button>
               <Button
+                scheme={'round'}
                 borderRadius="$full"
                 size="s"
                 p="2"
-                bg="$indigo600"
-                borderColor="$indigo600"
                 w="$12"
                 h="$12"
                 onPress={deleteImage}>
-                {/* EditIcon is imported from 'lucide-react-native' */}
-                <ButtonIcon as={EditIcon} />
+                <ButtonIcon flex={'1'} as={EditIcon} />
               </Button>
             </HStack>
-          </>
+          </View>
         )}
         <ModalModule showButton={id.label} title={'Capture Label'}>
           <CameraModule style={{flex: 1}} actions={actions} state={id} />
