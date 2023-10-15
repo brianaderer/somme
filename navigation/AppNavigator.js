@@ -19,6 +19,8 @@ export default function AppNavigator() {
         <BottomNavigation.Bar
           navigationState={state}
           safeAreaInsets={insets}
+          activeColor={sommeColors.sommeTextActive}
+          inactiveColor={sommeColors.sommeTextChrome}
           theme={{colors: {secondaryContainer: sommeColors.sommeSecondary}}}
           style={{backgroundColor: sommeColors.sommePrimary}}
           onTabPress={({route, preventDefault}) => {
