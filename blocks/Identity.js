@@ -1,5 +1,5 @@
 import {Image, Text, View} from 'react-native';
-import React, {useContext} from 'react';
+import React, {useContext, useRef} from 'react';
 import StyledTextInput from '../components/StyledTextInput';
 import StylesContext from '../contexts/StylesContext';
 import {bindActionCreators} from 'redux';
@@ -12,11 +12,16 @@ import {ButtonIcon, EditIcon, HStack} from '@gluestack-ui/themed';
 import {Button} from '../components/Button';
 
 const Identity = props => {
+  const modalRef = useRef(null);
   const {navigation, id, route, actions} = props;
   const next = route.params.next;
   const style = useContext(StylesContext);
   const deleteImage = () => {
     actions.changeId({...id, label: ''});
+  };
+  const resetImage = () => {
+    deleteImage();
+    modalRef.current.openModal();
   };
 
   return (
@@ -62,7 +67,7 @@ const Identity = props => {
                 w="$12"
                 h="$12"
                 style={{marginRight: 8}}
-                onPress={deleteImage}>
+                onPress={resetImage}>
                 <ButtonIcon as={EditIcon} />
               </Button>
               <Button
@@ -78,7 +83,10 @@ const Identity = props => {
             </HStack>
           </View>
         )}
-        <ModalModule showButton={id.label} title={'Capture Label'}>
+        <ModalModule
+          ref={modalRef}
+          showButton={id.label}
+          title={'Capture Label'}>
           <CameraModule style={{flex: 1}} actions={actions} state={id} />
         </ModalModule>
         {/*<ForwardBack navigation={navigation} next={next} />*/}

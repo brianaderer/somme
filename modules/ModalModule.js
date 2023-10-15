@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useImperativeHandle} from 'react';
 import {
   Center,
   Heading,
@@ -15,16 +15,19 @@ import {
 import {Button} from '../components/Button';
 import {ButtonText} from '../components/ButtonText';
 
-const ModalModule = props => {
+const ModalModule = React.forwardRef((props, ref) => {
   const {children, title, button, showButton} = props;
   const [showModal, setShowModal] = React.useState(false);
   const [size, setSize] = React.useState(undefined);
   const sizes = ['xs', 'sm', 'md', 'lg', 'full'];
-  const ref = React.useRef(null);
-  const handleClick = currentSize => {
+  const openModal = currentSize => {
     setShowModal(true);
     setSize(currentSize);
   };
+
+  useImperativeHandle(ref, () => ({
+    openModal,
+  }));
   const closeModal = () => {
     setShowModal(false);
   };
@@ -37,7 +40,7 @@ const ModalModule = props => {
       {!showButton && (
         <Button
           scheme={'outline'}
-          onPress={() => handleClick('lg')}
+          onPress={() => openModal('lg')}
           title={button}>
           <ButtonText>{title}</ButtonText>
         </Button>
@@ -47,8 +50,7 @@ const ModalModule = props => {
         onClose={() => {
           setShowModal(false);
         }}
-        size={size}
-        finalFocusRef={ref}>
+        size={size}>
         <ModalBackdrop />
         <ModalContent>
           <ModalHeader>
@@ -76,6 +78,6 @@ const ModalModule = props => {
       </Modal>
     </Center>
   );
-};
+});
 
 export default ModalModule;
