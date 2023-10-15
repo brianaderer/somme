@@ -9,12 +9,12 @@ export const Button = styled(
     px: '$9',
     variants: {
       scheme: {
-        solid: {bg: '$backgroundLight100'},
+        solid: {bg: '$sommeUIBackground'},
         outline: {
-          bg: '$sommeOffWhite',
+          bg: '$sommeUIBackground',
           borderWidth: '$1',
-          borderColor: '$sommeTertiary',
-          color: '$sommeTextPrimary',
+          borderColor: '$sommeSecondary',
+          color: '$sommeTextChrome',
         },
       },
       flush: {

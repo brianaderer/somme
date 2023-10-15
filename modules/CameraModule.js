@@ -75,8 +75,8 @@ const CameraModule = props => {
             flush={'top'}>
             <Center>
               <HStack>
-                <StyledIcon size={30} name={'camera'} color={'$sommeQuarternary'} />
-                <ButtonText alignSelf={'center'}>Capture</ButtonText>
+                <StyledIcon size={30} name={'camera'} color={'$sommeTextActive'} />
+                <ButtonText color={'$sommeTextChrome'} alignSelf={'center'}>Capture</ButtonText>
               </HStack>
             </Center>
           </Button>
