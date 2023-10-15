@@ -14,12 +14,13 @@ export default function AppNavigator() {
       backBehavior={'order'}
       screenOptions={{
         headerShown: false,
-        cardStyle: {backgroundColor: sommeColors.sommeMainBackground},
       }}
       tabBar={({navigation, state, descriptors, insets}) => (
         <BottomNavigation.Bar
           navigationState={state}
           safeAreaInsets={insets}
+          theme={{colors: {secondaryContainer: sommeColors.sommeSecondary}}}
+          style={{backgroundColor: sommeColors.sommePrimary}}
           onTabPress={({route, preventDefault}) => {
             const event = navigation.emit({
               type: 'tabPress',
