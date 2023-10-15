@@ -1,4 +1,11 @@
 {
   "name": "somm725",
-  "displayName": "Somm725"
+  "displayName": "Somm725",
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "5752f97a-e26e-483c-9860-d307ffd6a5d8"
+      }
+    }
+  }
 }
