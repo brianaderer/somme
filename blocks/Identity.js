@@ -1,6 +1,6 @@
 import {Image, Text, View} from 'react-native';
 import React, {useContext} from 'react';
-import {TextInput} from 'react-native-paper';
+import { StyledTextInput } from '../components/StyledTextInput';
 import StylesContext from '../contexts/StylesContext';
 import {bindActionCreators} from 'redux';
 import {changeId} from '../actions/id';
@@ -21,19 +21,19 @@ const Identity = props => {
   return (
     <View style={{flex: 1}}>
       <View style={style.homeStyles}>
-        <TextInput
+        <StyledTextInput
           style={style.textInput}
           label="Producer"
           value={id.producer}
           onChangeText={text => actions.changeId({...id, producer: text})}
         />
-        <TextInput
+        <StyledTextInput
           style={style.textInput}
           label="Vintage"
           value={id.vintage}
           onChangeText={text => actions.changeId({...id, vintage: text})}
         />
-        <TextInput
+        <StyledTextInput
           style={style.textInput}
           label="Cuvee"
           value={id.cuvee}
