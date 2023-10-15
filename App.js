@@ -27,9 +27,9 @@ const App = () => {
 
   return (
     <StylesContext.Provider value={styles}>
-      <SafeAreaProvider backgroundColor={sommeColors.sommeMainBackground}>
+      <SafeAreaProvider>
         <GluestackUIProvider config={config}>
-          <NavigationContainer bg={'$sommeMainBackground'}>
+          <NavigationContainer>
             <AppNavigator />
           </NavigationContainer>
         </GluestackUIProvider>
