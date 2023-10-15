@@ -14,9 +14,8 @@ import {styles} from './assets/styles';
 import StylesContext from './contexts/StylesContext';
 import AppNavigator from './navigation/AppNavigator';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import {GluestackUIProvider} from '@gluestack-ui/themed';
+import {GluestackUIProvider, View} from '@gluestack-ui/themed';
 import {config} from './config/gluestack-ui.config'; // Relative path to your ejected theme configuration
-
 import {LogBox} from 'react-native';
 
 LogBox.ignoreLogs(['Require cycle:']);

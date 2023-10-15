@@ -12,6 +12,7 @@ export default function AppNavigator() {
   return (
     <Tab.Navigator
       backBehavior={'order'}
+      sceneContainerStyle={{backgroundColor: sommeColors.sommeMainBackground}}
       screenOptions={{
         headerShown: false,
       }}
@@ -59,7 +60,6 @@ export default function AppNavigator() {
             key={screen.name}
             name={screen.name}
             component={screen.component}
-            bg={'$sommeMainBackground'}
             initialParams={{
               focusedIcon: screen?.focusedIcon || 'heart',
               unfocusedIcon: screen?.unfocusedIcon || 'heart-outline',
