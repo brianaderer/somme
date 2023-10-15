@@ -16,6 +16,11 @@ const StyledTextInput = ({children, ...props}) => {
       underlineColor={sommeColors.sommeSecondary}
       activeUnderlineColor={sommeColors.sommeTextActive}
       textColor={sommeColors.sommeTextActive}
+      theme={{
+        colors: {
+          onSurfaceVariant: sommeColors.sommeTextActive,
+        },
+      }}
       {...props}>
       {children}
     </Input>

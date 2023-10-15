@@ -3,15 +3,18 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {BottomNavigation} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import screenConfig from '../screens/screenConfig';
+import {config} from '../config/gluestack-ui.config';
 
 const Tab = createBottomTabNavigator();
 
 export default function AppNavigator() {
+  const sommeColors = config.tokens.colors;
   return (
     <Tab.Navigator
       backBehavior={'order'}
       screenOptions={{
         headerShown: false,
+        cardStyle: {backgroundColor: sommeColors.sommeMainBackground},
       }}
       tabBar={({navigation, state, descriptors, insets}) => (
         <BottomNavigation.Bar
