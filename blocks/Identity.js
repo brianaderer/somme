@@ -1,6 +1,6 @@
 import {Image, Text, View} from 'react-native';
 import React, {useContext} from 'react';
-import { StyledTextInput } from '../components/StyledTextInput';
+import StyledTextInput from '../components/StyledTextInput';
 import StylesContext from '../contexts/StylesContext';
 import {bindActionCreators} from 'redux';
 import {changeId} from '../actions/id';

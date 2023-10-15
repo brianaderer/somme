@@ -53,9 +53,11 @@ export default function AppNavigator() {
             key={screen.name}
             name={screen.name}
             component={screen.component}
+            bg={'$sommeMainBackground'}
             initialParams={{
               focusedIcon: screen?.focusedIcon || 'heart',
               unfocusedIcon: screen?.unfocusedIcon || 'heart-outline',
+              color: '$sommeTextChrome',
               next: screen.next,
             }}
             options={{

@@ -23,10 +23,11 @@ LogBox.ignoreLogs(['Require cycle:']);
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
+  const sommeColors = config.tokens.colors;
 
   return (
     <StylesContext.Provider value={styles}>
-      <SafeAreaProvider>
+      <SafeAreaProvider backgroundColor={sommeColors.sommeMainBackground}>
         <GluestackUIProvider config={config}>
           <NavigationContainer bg={'$sommeMainBackground'}>
             <AppNavigator />
