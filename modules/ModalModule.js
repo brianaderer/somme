@@ -12,8 +12,8 @@ import {
   Icon,
   CloseIcon,
 } from '@gluestack-ui/themed';
-import {Button} from '../blocks/Button';
-import {ButtonText} from '../blocks/ButtonText';
+import {Button} from '../components/Button';
+import {ButtonText} from '../components/ButtonText';
 
 const ModalModule = props => {
   const {children, title, button, showButton} = props;

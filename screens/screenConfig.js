@@ -1,8 +1,8 @@
-import Identity from '../components/Identity';
-import Visual from '../components/Visual';
-import Nose from '../components/Nose';
-import Palette from '../components/Palette';
-import Conclusion from '../components/Conclusion';
+import Identity from '../blocks/Identity';
+import Visual from '../blocks/Visual';
+import Nose from '../blocks/Nose';
+import Palette from '../blocks/Palette';
+import Conclusion from '../blocks/Conclusion';
 
 const screenConfig = [
   {

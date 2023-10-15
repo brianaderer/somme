@@ -1,9 +1,9 @@
 import React, {useRef, useState} from 'react';
 import {Camera, CameraType} from 'react-native-camera-kit';
 import {Center, HStack, View, Image, ButtonIcon} from '@gluestack-ui/themed';
-import {Button} from '../blocks/Button';
-import {ButtonText} from '../blocks/ButtonText';
-import {StyledIcon} from '../blocks/StyledIcon';
+import {Button} from '../components/Button';
+import {ButtonText} from '../components/ButtonText';
+import {StyledIcon} from '../components/StyledIcon';
 
 const CameraModule = props => {
   const {actions, state, closeModal} = props;

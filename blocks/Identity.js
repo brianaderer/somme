@@ -24,21 +24,18 @@ const Identity = props => {
         <TextInput
           style={style.textInput}
           label="Producer"
-          placeholder={"Chateau d'Yquem"}
           value={id.producer}
           onChangeText={text => actions.changeId({...id, producer: text})}
         />
         <TextInput
           style={style.textInput}
           label="Vintage"
-          placeholder={'2001'}
           value={id.vintage}
           onChangeText={text => actions.changeId({...id, vintage: text})}
         />
         <TextInput
           style={style.textInput}
           label="Cuvee"
-          placeholder={'Lur Saluces'}
           value={id.cuvee}
           onChangeText={text => actions.changeId({...id, cuvee: text})}
         />
