@@ -10,6 +10,7 @@ import CameraModule from '../modules/CameraModule';
 import ModalModule from '../modules/ModalModule';
 import {ButtonIcon, EditIcon, HStack} from '@gluestack-ui/themed';
 import {Button} from '../components/Button';
+import {StyledIcon} from '../components/StyledIcon';
 
 const Identity = props => {
   const modalRef = useRef(null);
@@ -68,7 +69,11 @@ const Identity = props => {
                 h="$12"
                 style={{marginRight: 8}}
                 onPress={resetImage}>
-                <ButtonIcon as={EditIcon} />
+                <StyledIcon
+                  size={30}
+                  name={'restart'}
+                  color={'$sommeTextActive'}
+                />
               </Button>
               <Button
                 scheme={'round'}
@@ -78,7 +83,11 @@ const Identity = props => {
                 w="$12"
                 h="$12"
                 onPress={deleteImage}>
-                <ButtonIcon flex={'1'} as={EditIcon} />
+                <StyledIcon
+                  size={30}
+                  name={'delete-forever-outline'}
+                  color={'$sommeTextActive'}
+                />
               </Button>
             </HStack>
           </View>

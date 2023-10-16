@@ -4,9 +4,8 @@ import StylesContext from '../contexts/StylesContext';
 import {bindActionCreators} from 'redux';
 import {changeCount} from '../actions/counts';
 import {connect} from 'react-redux';
-import ModalModule from '../modules/ModalModule';
-import ForwardBack from '../navigation/ForwardBack';
-import CustomTabBar from '../navigation/CustomTabBar'; // <-- Import the custom tab bar here
+import {Center} from '@gluestack-ui/themed';
+import {StyledSlider} from '../components/StyledSlider';
 
 const Palette = props => {
   const {route, navigation, count} = props;
@@ -16,8 +15,9 @@ const Palette = props => {
   return (
     <View style={{flex: 1}}>
       <View style={style.homeStyles}>
-        <ModalModule />
-        <Text style={style.baseText}>Visual Screen</Text>
+        <Center w={300} h={100}>
+          <StyledSlider min={0} max={3} defaultValue={0} />
+        </Center>
         {/*<ForwardBack navigation={navigation} next={next} />*/}
       </View>
     </View>
