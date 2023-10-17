@@ -4,8 +4,9 @@ import React from 'react';
 import {StyledIcon} from '../components/StyledIcon';
 import {StyledButtonText} from '../components/StyledButtonText';
 import {GOOGLE_SERVICES} from '@env';
-
+// import GoogleSignin from '../SignIns/Google';
 const Login = () => {
+  console.log(GOOGLE_SERVICES);
   return (
     <View
       alignItems={'center'}
