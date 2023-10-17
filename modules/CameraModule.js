@@ -1,8 +1,8 @@
 import React, {useRef, useState} from 'react';
 import {Camera, CameraType} from 'react-native-camera-kit';
 import {Center, HStack, View, Image, ButtonIcon} from '@gluestack-ui/themed';
-import {Button} from '../components/Button';
-import {ButtonText} from '../components/ButtonText';
+import {StyledButton} from '../components/StyledButton';
+import {StyledButtonText} from '../components/StyledButtonText';
 import {StyledIcon} from '../components/StyledIcon';
 
 const CameraModule = props => {
@@ -37,24 +37,24 @@ const CameraModule = props => {
           />
           <Center>
             <HStack>
-              <Button
+              <StyledButton
                 w={'$40'}
                 scheme={'outline'}
                 flush={'topRight'}
                 size="sm"
                 onPress={saveImage}
                 title={'keep'}>
-                <ButtonText>Keep</ButtonText>
-              </Button>
-              <Button
+                <StyledButtonText>Keep</StyledButtonText>
+              </StyledButton>
+              <StyledButton
                 w={'$40'}
                 flush={'topLeft'}
                 scheme={'outline'}
                 size="sm"
                 onPress={resetImage}
                 title={'try again'}>
-                <ButtonText>Try Again</ButtonText>
-              </Button>
+                <StyledButtonText>Try Again</StyledButtonText>
+              </StyledButton>
             </HStack>
           </Center>
         </>
@@ -66,7 +66,7 @@ const CameraModule = props => {
             flashMode="auto"
             style={{width: 300, height: 300}}
           />
-          <Button
+          <StyledButton
             size="sm"
             action="primary"
             onPress={handleCapture}
@@ -76,12 +76,12 @@ const CameraModule = props => {
             <Center>
               <HStack>
                 <StyledIcon size={30} name={'camera'} color={'$sommeTextActive'} />
-                <ButtonText color={'$sommeTextChrome'} alignSelf={'center'}>
+                <StyledButtonText color={'$sommeTextChrome'} alignSelf={'center'}>
                   Capture
-                </ButtonText>
+                </StyledButtonText>
               </HStack>
             </Center>
-          </Button>
+          </StyledButton>
         </>
       )}
     </View>

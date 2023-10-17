@@ -1,7 +1,7 @@
 import {styled} from '@gluestack-style/react';
 import {Text} from '@gluestack-ui/themed';
 
-export const ButtonText = styled(
+export const StyledButtonText = styled(
   Text,
   {
     textAlign: 'center',

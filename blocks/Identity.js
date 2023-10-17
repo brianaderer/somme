@@ -9,7 +9,7 @@ import ForwardBack from '../navigation/ForwardBack';
 import CameraModule from '../modules/CameraModule';
 import ModalModule from '../modules/ModalModule';
 import {ButtonIcon, EditIcon, HStack} from '@gluestack-ui/themed';
-import {Button} from '../components/Button';
+import {StyledButton} from '../components/StyledButton';
 import {StyledIcon} from '../components/StyledIcon';
 
 const Identity = props => {
@@ -60,7 +60,7 @@ const Identity = props => {
             />
             <HStack
               style={{position: 'absolute', bottom: 10, right: 10, zIndex: 1}}>
-              <Button
+              <StyledButton
                 scheme={'round'}
                 borderRadius="$full"
                 size="s"
@@ -74,8 +74,8 @@ const Identity = props => {
                   name={'restart'}
                   color={'$sommeTextActive'}
                 />
-              </Button>
-              <Button
+              </StyledButton>
+              <StyledButton
                 scheme={'round'}
                 borderRadius="$full"
                 size="s"
@@ -88,7 +88,7 @@ const Identity = props => {
                   name={'delete-forever-outline'}
                   color={'$sommeTextActive'}
                 />
-              </Button>
+              </StyledButton>
             </HStack>
           </View>
         )}

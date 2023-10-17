@@ -1,7 +1,7 @@
 import {styled} from '@gluestack-style/react';
 import {Pressable} from '@gluestack-ui/themed';
 
-export const Button = styled(
+export const StyledButton = styled(
   Pressable,
   {
     bg: '$sommeUIBackground',

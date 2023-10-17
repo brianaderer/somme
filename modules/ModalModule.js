@@ -12,8 +12,8 @@ import {
   Icon,
   CloseIcon,
 } from '@gluestack-ui/themed';
-import {Button} from '../components/Button';
-import {ButtonText} from '../components/ButtonText';
+import {StyledButton} from '../components/StyledButton';
+import {StyledButtonText} from '../components/StyledButtonText';
 
 const ModalModule = React.forwardRef((props, ref) => {
   const {children, title, button, showButton} = props;
@@ -38,12 +38,12 @@ const ModalModule = React.forwardRef((props, ref) => {
   return (
     <Center>
       {!showButton && (
-        <Button
+        <StyledButton
           scheme={'outline'}
           onPress={() => openModal('lg')}
           title={button}>
-          <ButtonText>{title}</ButtonText>
-        </Button>
+          <StyledButtonText>{title}</StyledButtonText>
+        </StyledButton>
       )}
       <Modal
         isOpen={showModal}
@@ -63,7 +63,7 @@ const ModalModule = React.forwardRef((props, ref) => {
             <Center h={400}>{enhancedChildren}</Center>
           </ModalBody>
           <ModalFooter>
-            <Button
+            <StyledButton
               scheme="outline"
               size="sm"
               mr="$3"
@@ -71,8 +71,8 @@ const ModalModule = React.forwardRef((props, ref) => {
                 setShowModal(false);
               }}
               title={'Secondary'}>
-              <ButtonText>Cancel</ButtonText>
-            </Button>
+              <StyledButtonText>Cancel</StyledButtonText>
+            </StyledButton>
           </ModalFooter>
         </ModalContent>
       </Modal>
