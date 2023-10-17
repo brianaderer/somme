@@ -14,9 +14,10 @@ import {styles} from './assets/styles';
 import StylesContext from './contexts/StylesContext';
 import AppNavigator from './navigation/AppNavigator';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import {GluestackUIProvider, View} from '@gluestack-ui/themed';
+import {GluestackUIProvider} from '@gluestack-ui/themed';
 import {config} from './config/gluestack-ui.config'; // Relative path to your ejected theme configuration
 import {LogBox} from 'react-native';
+import AuthWrapper from './providers/Auth';
 
 LogBox.ignoreLogs(['Require cycle:']);
 
@@ -25,15 +26,17 @@ const App = () => {
   const sommeColors = config.tokens.colors;
 
   return (
-    <StylesContext.Provider value={styles}>
-      <SafeAreaProvider>
-        <GluestackUIProvider config={config}>
-          <NavigationContainer>
-            <AppNavigator />
-          </NavigationContainer>
-        </GluestackUIProvider>
-      </SafeAreaProvider>
-    </StylesContext.Provider>
+    <AuthWrapper>
+      <StylesContext.Provider value={styles}>
+        <SafeAreaProvider>
+          <GluestackUIProvider config={config}>
+            <NavigationContainer>
+              <AppNavigator />
+            </NavigationContainer>
+          </GluestackUIProvider>
+        </SafeAreaProvider>
+      </StylesContext.Provider>
+    </AuthWrapper>
   );
 };
 

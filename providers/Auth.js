@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text} from 'react-native';
 import auth from '@react-native-firebase/auth';
+import {UserProvider} from '../contexts/UserContext';
+import firebase from '../modules/firebase';
 
-const Auth: () => Node = ({children}) => {
+const AuthWrapper = ({children}) => {
   // Set an initializing state whilst Firebase connects
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
@@ -16,28 +17,10 @@ const Auth: () => Node = ({children}) => {
   }
 
   useEffect(() => {
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    const subscriber = firebase.auth().onAuthStateChanged(onAuthStateChanged);
     return subscriber; // unsubscribe on unmount
   }, []);
 
-  if (initializing) {
-    return null;
-  }
-
-  if (!user) {
-    return (
-      <View>
-        <Text>Login</Text>
-      </View>
-    );
-  }
-
-  return (
-    <View>
-      <Text>Welcome {user.email}</Text>
-      {children}
-    </View>
-  );
+  return <UserProvider value={{user, initializing}}>{children}</UserProvider>;
 };
-
-export default Auth;
+export default AuthWrapper;
