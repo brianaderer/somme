@@ -67,3 +67,4 @@ yarn-error.log
 #dont track sensitive info
 .env
 ./android/google-services.json
+./android/app/google-services.json
