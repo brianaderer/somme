@@ -1,12 +1,12 @@
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
-import {GOOGLE_client_id} from '@env';
+import {GOOGLE_other_platform_client_id} from '@env';
 
 let isGoogleSignInConfigured = false;
 
 if (!isGoogleSignInConfigured) {
   GoogleSignin.configure({
-    webClientId: GOOGLE_client_id,
+    webClientId: GOOGLE_other_platform_client_id,
   });
   isGoogleSignInConfigured = true;
 }

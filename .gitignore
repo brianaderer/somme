@@ -68,3 +68,5 @@ yarn-error.log
 .env
 ./android/google-services.json
 ./android/app/google-services.json
+./android/debug.keystore
+./android/app/debug.keystore
