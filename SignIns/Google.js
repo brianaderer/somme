@@ -29,3 +29,17 @@ export async function onGoogleButtonPress() {
     throw error; // Or handle it in some other way
   }
 }
+
+export async function signOut() {
+  try {
+    // Sign out from Google Sign-In
+    await GoogleSignin.revokeAccess();
+    await GoogleSignin.signOut();
+
+    // Sign out from Firebase Authentication
+    await auth().signOut();
+  } catch (error) {
+    console.error('Error during Google Sign-Out', error);
+    throw error; // Or handle it in some other way
+  }
+}
