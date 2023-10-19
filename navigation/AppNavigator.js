@@ -14,88 +14,68 @@ const Tab = createBottomTabNavigator();
 export default function AppNavigator() {
   const sommeColors = config.tokens.colors;
   return (
-    <View
-      flex={1}
-      bg={'$sommeMainBackground'}
-      position={'relative'}
-    >
-      <StyledButton
-        position={'fixed'}
-        top={'$0'}
-        right={'$0'}
-        scheme={'outline'}
-        onPress={() =>
-          signOut()
-            .then(() => console.log('Signed out with Google!'))
-            .catch(error =>
-              console.error('Error signing out with Google:', error),
-            )
-        }>
-        <StyledButtonText>Google</StyledButtonText>
-      </StyledButton>
-      <Tab.Navigator
-        backBehavior={'order'}
-        sceneContainerStyle={{backgroundColor: sommeColors.sommeMainBackground}}
-        screenOptions={{
-          headerShown: false,
-        }}
-        tabBar={({navigation, state, descriptors, insets}) => (
-          <BottomNavigation.Bar
-            navigationState={state}
-            safeAreaInsets={insets}
-            activeColor={sommeColors.sommeTextActive}
-            inactiveColor={sommeColors.sommeTextChrome}
-            theme={{colors: {secondaryContainer: sommeColors.sommeSecondary}}}
-            style={{backgroundColor: sommeColors.sommePrimary}}
-            onTabPress={({route, preventDefault}) => {
-              const event = navigation.emit({
-                type: 'tabPress',
-                target: route.key,
-                canPreventDefault: true,
-              });
+    <Tab.Navigator
+      backBehavior={'order'}
+      sceneContainerStyle={{backgroundColor: sommeColors.sommeMainBackground}}
+      screenOptions={{
+        headerShown: false,
+      }}
+      tabBar={({navigation, state, descriptors, insets}) => (
+        <BottomNavigation.Bar
+          navigationState={state}
+          safeAreaInsets={insets}
+          activeColor={sommeColors.sommeTextActive}
+          inactiveColor={sommeColors.sommeTextChrome}
+          theme={{colors: {secondaryContainer: sommeColors.sommeSecondary}}}
+          style={{backgroundColor: sommeColors.sommePrimary}}
+          onTabPress={({route, preventDefault}) => {
+            const event = navigation.emit({
+              type: 'tabPress',
+              target: route.key,
+              canPreventDefault: true,
+            });
 
-              if (!event.defaultPrevented) {
-                navigation.navigate(route.name);
-              }
-            }}
-            renderIcon={({route, focused, color}) => {
-              const iconName = focused
-                ? route.params.focusedIcon
-                : route.params.unfocusedIcon;
-              return <Icon name={iconName} size={24} color={color} />;
-            }}
-            getLabelText={({route}) => {
-              const {options} = descriptors[route.key];
-              const label =
-                options.tabBarLabel !== undefined
-                  ? options.tabBarLabel
-                  : options.title !== undefined
-                  ? options.title
-                  : route.title;
+            if (!event.defaultPrevented) {
+              navigation.navigate(route.name);
+            }
+          }}
+          renderIcon={({route, focused, color}) => {
+            const iconName = focused
+              ? route.params.focusedIcon
+              : route.params.unfocusedIcon;
+            return <Icon name={iconName} size={24} color={color} />;
+          }}
+          getLabelText={({route}) => {
+            const {options} = descriptors[route.key];
+            const label =
+              options.tabBarLabel !== undefined
+                ? options.tabBarLabel
+                : options.title !== undefined
+                ? options.title
+                : route.title;
 
-              return label;
+            return label;
+          }}
+        />
+      )}>
+      {screenConfig.map(screen => {
+        return (
+          <Tab.Screen
+            key={screen.name}
+            name={screen.name}
+            component={screen.component}
+            initialParams={{
+              focusedIcon: screen?.focusedIcon || 'heart',
+              unfocusedIcon: screen?.unfocusedIcon || 'heart-outline',
+              color: '$sommeTextChrome',
+              next: screen.next,
+            }}
+            options={{
+              tabBarLabel: screen.name,
             }}
           />
-        )}>
-        {screenConfig.map(screen => {
-          return (
-            <Tab.Screen
-              key={screen.name}
-              name={screen.name}
-              component={screen.component}
-              initialParams={{
-                focusedIcon: screen?.focusedIcon || 'heart',
-                unfocusedIcon: screen?.unfocusedIcon || 'heart-outline',
-                color: '$sommeTextChrome',
-                next: screen.next,
-              }}
-              options={{
-                tabBarLabel: screen.name,
-              }}
-            />
-          );
-        })}
-      </Tab.Navigator>
-    </View>
+        );
+      })}
+    </Tab.Navigator>
   );
 }
