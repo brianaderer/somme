@@ -4,7 +4,6 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
-import {Button} from 'react-native';
 import AppNavigator from '../navigation/AppNavigator';
 import Account from '../blocks/Account';
 import {useDrawerStatus} from '@react-navigation/drawer';
@@ -16,7 +15,13 @@ import {StyledButtonText} from '../components/StyledButtonText'; // Import the c
 const Drawer = createDrawerNavigator();
 
 const CustomDrawerContent = props => {
-  const isDrawerOpen = useDrawerStatus() === 'open';
+  const isDrawerOpenStatus = useDrawerStatus() === 'open';
+  const {setDrawerOpenState} = useContext(DrawerContext);
+
+  useEffect(() => {
+    setDrawerOpenState(isDrawerOpenStatus);
+  }, [isDrawerOpenStatus]);
+
   return (
     <DrawerContentScrollView {...props}>
       {/* Existing drawer items */}
@@ -26,7 +31,8 @@ const CustomDrawerContent = props => {
 };
 
 const AccountNavigator = ({children, user}) => {
-  const {navigation} = useContext(DrawerContext); // Consume the navigation object from the context
+  const {navigation, isDrawerOpen} = useContext(DrawerContext); // Consume the navigation object and drawer open state
+  console.log(isDrawerOpen);
   return (
     <View flex={1}>
       <View style={{position: 'absolute', top: 10, left: 10, zIndex: 1}}>

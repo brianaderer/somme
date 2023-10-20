@@ -1,18 +1,18 @@
 import {View, Text} from '@gluestack-ui/themed';
-import React, { useContext, useEffect } from "react";
+import React, {useContext, useEffect} from 'react';
 import {StyledButton} from '../components/StyledButton';
 import {StyledButtonText} from '../components/StyledButtonText';
 import {signOut} from '../SignIns/Google';
-import { useNavigation } from "@react-navigation/native";
-import { DrawerContext } from "../contexts/DrawerContext";
+import {useNavigation} from '@react-navigation/native';
+import {DrawerContext} from '../contexts/DrawerContext';
 
 const Account = ({route}) => {
   const navigation = useNavigation();
-  const { setNavigation } = useContext(DrawerContext);
+  const {setNavigation} = useContext(DrawerContext);
 
   useEffect(() => {
     setNavigation(navigation);
-  }, [navigation]);
+  }, [navigation, setNavigation]);
   const {user} = route.params;
   return (
     <View flex={1} alignItems={'center'} justifyContent={'center'}>
