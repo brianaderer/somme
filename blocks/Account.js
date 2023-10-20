@@ -16,7 +16,7 @@ const Account = ({route}) => {
   const {user} = route.params;
   return (
     <View flex={1} alignItems={'center'} justifyContent={'center'}>
-      <Text mb={'$2'}>Hello {user.displayName}</Text>
+      <Text mb={'$2'}>Santé, {user.displayName}</Text>
       <StyledButton scheme={'outline'} onPress={() => signOut()}>
         <StyledButtonText>Sign Out</StyledButtonText>
       </StyledButton>
