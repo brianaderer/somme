@@ -5,7 +5,7 @@ import {changeCount} from '../actions/counts';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-const Counter: () => Node = props => {
+const Counter = props => {
   const {count, actions, navigation} = props;
   const style = useContext(StylesContext);
 
@@ -19,7 +19,7 @@ const Counter: () => Node = props => {
   return (
     <View style={style.homeStyles}>
       <Button title="increment" onPress={incrementCount} />
-      <Text style={style.baseText}>{count.count}</Text>
+      <Text style={style.baseText}>1</Text>
       <Button title="decrement" onPress={decrementCount} />
       <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
     </View>

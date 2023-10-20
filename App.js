@@ -6,13 +6,12 @@
  * @flow strict-local
  */
 
+
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import 'react-native-gesture-handler';
 import {useColorScheme} from 'react-native';
 import {styles} from './assets/styles';
 import StylesContext from './contexts/StylesContext';
-import AppNavigator from './navigation/AppNavigator';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {GluestackUIProvider, View} from '@gluestack-ui/themed';
 import {config} from './config/gluestack-ui.config'; // Relative path to your ejected theme configuration
@@ -33,11 +32,9 @@ const MainComponent = () => {
     <StylesContext.Provider value={styles}>
       <SafeAreaProvider>
         <GluestackUIProvider config={config}>
-          <AccountNavigator user={user}>
-            <NavigationContainer>
-              {user ? <AppNavigator /> : <Login />}
-            </NavigationContainer>
-          </AccountNavigator>
+          <NavigationContainer>
+            {user ? <AccountNavigator user={user} /> : <Login />}
+          </NavigationContainer>
         </GluestackUIProvider>
       </SafeAreaProvider>
     </StylesContext.Provider>
