@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, {useContext} from 'react';
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -31,12 +31,8 @@ const CustomDrawerContent = props => {
 };
 
 const AccountNavigator = ({children, user}) => {
-  const navigation = useNavigation();
-  const { setNavigation } = useContext(DrawerContext);
-
-  useEffect(() => {
-    setNavigation(navigation);
-  }, [navigation]);
+  const navigation = useContext(DrawerContext);
+  console.log(navigation);
   return (
     <View flex={1}>
       <Button title="Toggle Drawer" onPress={() => navigation.toggleDrawer()} />
