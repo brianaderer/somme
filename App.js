@@ -6,7 +6,6 @@
  * @flow strict-local
  */
 
-
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {useColorScheme} from 'react-native';
@@ -21,6 +20,7 @@ import UserContext from './contexts/UserContext';
 import {useContext} from 'react';
 import Login from './blocks/Login.js';
 import AccountNavigator from './navigation/AccountNavigator';
+import {DrawerManager} from "./modules/DrawerManager";
 
 LogBox.ignoreLogs(['Require cycle:']);
 
@@ -33,7 +33,9 @@ const MainComponent = () => {
       <SafeAreaProvider>
         <GluestackUIProvider config={config}>
           <NavigationContainer>
+            <DrawerManager>
             {user ? <AccountNavigator user={user} /> : <Login />}
+            </DrawerManager>
           </NavigationContainer>
         </GluestackUIProvider>
       </SafeAreaProvider>

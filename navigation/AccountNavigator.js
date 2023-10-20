@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from "react";
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -9,7 +9,10 @@ import {Button} from 'react-native';
 import AppNavigator from '../navigation/AppNavigator';
 import Account from '../blocks/Account';
 import {useDrawerStatus} from '@react-navigation/drawer';
-import { signOut } from "../SignIns/Google";
+import {View} from '@gluestack-ui/themed';
+import {useNavigation} from '@react-navigation/native';
+import {DrawerManager} from '../modules/DrawerManager';
+import {DrawerContext} from '../contexts/DrawerContext';
 
 const Drawer = createDrawerNavigator();
 
@@ -21,10 +24,6 @@ const CustomDrawerContent = props => {
         title="Toggle Drawer"
         onPress={() => props.navigation.toggleDrawer()}
       />
-      <Button
-        title="Sign Out"
-        onPress={() => signOut()}
-      />
       {/* Existing drawer items */}
       <DrawerItemList {...props} />
     </DrawerContentScrollView>
@@ -32,17 +31,29 @@ const CustomDrawerContent = props => {
 };
 
 const AccountNavigator = ({children, user}) => {
+  const navigation = useNavigation();
+  const { setNavigation } = useContext(DrawerContext);
+
+  useEffect(() => {
+    setNavigation(navigation);
+  }, [navigation]);
   return (
-    <Drawer.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}
-      defaultStatus={'open'}
-      initialRouteName={'Account'}
-      drawerContent={props => <CustomDrawerContent {...props} />}>
-      <Drawer.Screen name="Wines" component={AppNavigator} />
-      <Drawer.Screen name="Account" component={Account} />
-    </Drawer.Navigator>
+    <View flex={1}>
+      <Button title="Toggle Drawer" onPress={() => navigation.toggleDrawer()} />
+      <Drawer.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+        initialRouteName={'Account'}
+        drawerContent={props => <CustomDrawerContent {...props} />}>
+        <Drawer.Screen name="Wines" component={AppNavigator} />
+        <Drawer.Screen
+          name="Account"
+          component={Account}
+          initialParams={{user: user}}
+        />
+      </Drawer.Navigator>
+    </View>
   );
 };
 
