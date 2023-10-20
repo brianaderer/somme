@@ -1,8 +1,7 @@
-import React, {useContext} from 'react';
+import React, { useContext, useEffect } from "react";
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
-  DrawerItem,
   DrawerItemList,
 } from '@react-navigation/drawer';
 import {Button} from 'react-native';
@@ -10,9 +9,7 @@ import AppNavigator from '../navigation/AppNavigator';
 import Account from '../blocks/Account';
 import {useDrawerStatus} from '@react-navigation/drawer';
 import {View} from '@gluestack-ui/themed';
-import {useNavigation} from '@react-navigation/native';
-import {DrawerManager} from '../modules/DrawerManager';
-import {DrawerContext} from '../contexts/DrawerContext';
+import { DrawerContext } from '../contexts/DrawerContext';  // Import the context
 
 const Drawer = createDrawerNavigator();
 
@@ -31,8 +28,7 @@ const CustomDrawerContent = props => {
 };
 
 const AccountNavigator = ({children, user}) => {
-  const navigation = useContext(DrawerContext);
-  console.log(navigation);
+  const { navigation } = useContext(DrawerContext);  // Consume the navigation object from the context
   return (
     <View flex={1}>
       <Button title="Toggle Drawer" onPress={() => navigation.toggleDrawer()} />
