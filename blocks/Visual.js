@@ -1,4 +1,4 @@
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
 import React, {useContext} from 'react';
 import StylesContext from '../contexts/StylesContext';
 import {bindActionCreators} from 'redux';
@@ -6,6 +6,7 @@ import {changeVisual} from '../actions/visual';
 import {connect} from 'react-redux';
 import {Center} from '@gluestack-ui/themed';
 import {StyledSlider} from '../components/StyledSlider';
+import {lookups} from '../assets/lookups';
 
 const Visual = props => {
   const {visual, actions} = props;
@@ -15,7 +16,7 @@ const Visual = props => {
   const Set = (value, slug) => {
     actions.changeVisual({
       ...visual,
-      [slug]: {...visual[slug], value: value},
+      [slug]: value,
     });
   };
 
@@ -25,7 +26,7 @@ const Visual = props => {
         <Center w={300} h={100}>
           <StyledSlider
             heading={'Clarity'}
-            lookup={visual.Clarity.lookup}
+            lookup={lookups.Clarity}
             changeFX={Set}
             min={0}
             max={3}
@@ -36,7 +37,7 @@ const Visual = props => {
         <Center w={300} h={100}>
           <StyledSlider
             heading={'Concentration'}
-            lookup={visual.Concentration.lookup}
+            lookup={lookups.Concentration}
             changeFX={Set}
             min={0}
             max={3}
@@ -47,7 +48,7 @@ const Visual = props => {
         <Center w={300} h={100}>
           <StyledSlider
             heading={'Extract/Staining'}
-            lookup={visual.Extract.lookup}
+            lookup={lookups.Extract}
             changeFX={Set}
             min={0}
             max={3}
@@ -58,7 +59,7 @@ const Visual = props => {
         <Center w={300} h={100}>
           <StyledSlider
             heading={'Tearing'}
-            lookup={visual.Tearing.lookup}
+            lookup={lookups.Tearing}
             changeFX={Set}
             min={0}
             max={3}

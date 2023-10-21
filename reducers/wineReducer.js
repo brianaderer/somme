@@ -9,42 +9,10 @@ const initialState = {
     label: '',
   },
   visual: {
-    Clarity: {
-      value: 0,
-      lookup: {
-        0: 'N/A',
-        1: 'Clear',
-        2: 'Hazy',
-        3: 'Turbid',
-      },
-    },
-    Concentration: {
-      value: 0,
-      lookup: {
-        0: 'N/A',
-        1: 'Pale',
-        2: 'Medium',
-        3: 'Deep',
-      },
-    },
-    Extract: {
-      value: 0,
-      lookup: {
-        0: 'None',
-        1: 'Light',
-        2: 'Medium',
-        3: 'Deep',
-      },
-    },
-    Tearing: {
-      value: 0,
-      lookup: {
-        0: 'N/A',
-        1: 'Light',
-        2: 'Medium',
-        3: 'Heavy',
-      },
-    },
+    Clarity: 0,
+    Concentration: 0,
+    Extract: 0,
+    Tearing: 0,
   },
 };
 const wineReducer = (state = initialState, action) => {
