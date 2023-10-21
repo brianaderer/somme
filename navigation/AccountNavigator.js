@@ -10,7 +10,8 @@ import {useDrawerStatus} from '@react-navigation/drawer';
 import {View} from '@gluestack-ui/themed';
 import {DrawerContext} from '../contexts/DrawerContext';
 import {StyledButton} from '../components/StyledButton';
-import {StyledButtonText} from '../components/StyledButtonText'; // Import the context
+import {StyledIcon} from '../components/StyledIcon'; // Import the context
+import {config} from "../config/gluestack-ui.config";
 
 const Drawer = createDrawerNavigator();
 
@@ -20,7 +21,7 @@ const CustomDrawerContent = props => {
 
   useEffect(() => {
     setDrawerOpenState(isDrawerOpenStatus);
-  }, [isDrawerOpenStatus]);
+  }, [isDrawerOpenStatus, setDrawerOpenState]);
 
   return (
     <DrawerContentScrollView {...props}>
@@ -31,22 +32,29 @@ const CustomDrawerContent = props => {
 };
 
 const AccountNavigator = ({children, user}) => {
+  const sommeColors = config.tokens.colors;
   const {navigation, isDrawerOpen} = useContext(DrawerContext); // Consume the navigation object and drawer open state
-  console.log(isDrawerOpen);
   return (
     <View flex={1}>
       <View style={{position: 'absolute', top: 10, left: 10, zIndex: 1}}>
         <StyledButton
-          scheme={'outline'}
+          scheme={'round'}
           title="Toggle Drawer"
           onPress={() => navigation.toggleDrawer()}>
-          <StyledButtonText>Toggle</StyledButtonText>
+          <StyledIcon
+            size={30}
+            name={isDrawerOpen ? 'menu-open' : 'menu'}
+            color={'$sommeTextActive'}
+          />
         </StyledButton>
       </View>
       <Drawer.Navigator
         screenOptions={{
+          drawerActiveTintColor: sommeColors.sommeTextChrome,
+          drawerActiveBackgroundColor: sommeColors.sommeSecondary,
           headerShown: false,
           drawerStyle: {
+            backgroundColor: sommeColors.sommeUIBackground,
             paddingTop: 80,
           },
         }}

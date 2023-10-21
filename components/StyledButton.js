@@ -14,6 +14,8 @@ export const StyledButton = styled(
         round: {
           alignItems: 'center',
           justifyContent: 'center',
+          rounded: '$full',
+          p: '$2',
         },
         outline: {
           rounded: '$lg',
