@@ -11,7 +11,7 @@ import {View} from '@gluestack-ui/themed';
 import {DrawerContext} from '../contexts/DrawerContext';
 import {StyledButton} from '../components/StyledButton';
 import {StyledIcon} from '../components/StyledIcon'; // Import the context
-import {config} from "../config/gluestack-ui.config";
+import {config} from '../config/gluestack-ui.config';
 
 const Drawer = createDrawerNavigator();
 

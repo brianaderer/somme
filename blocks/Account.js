@@ -7,12 +7,6 @@ import {useNavigation} from '@react-navigation/native';
 import {DrawerContext} from '../contexts/DrawerContext';
 
 const Account = ({route}) => {
-  const navigation = useNavigation();
-  const {setNavigation} = useContext(DrawerContext);
-
-  useEffect(() => {
-    setNavigation(navigation);
-  }, [navigation, setNavigation]);
   const {user} = route.params;
   return (
     <View flex={1} alignItems={'center'} justifyContent={'center'}>
