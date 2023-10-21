@@ -18,7 +18,7 @@ import {LogBox} from 'react-native';
 import AuthWrapper from './providers/Auth';
 import UserContext from './contexts/UserContext';
 import {useContext} from 'react';
-import Login from './blocks/Login.js';
+import Login from './pages/Login.js';
 import AccountNavigator from './navigation/AccountNavigator';
 import {DrawerManager} from './modules/DrawerManager';
 

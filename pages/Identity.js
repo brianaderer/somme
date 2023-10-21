@@ -5,7 +5,6 @@ import StylesContext from '../contexts/StylesContext';
 import {bindActionCreators} from 'redux';
 import {changeId} from '../actions/id';
 import {connect} from 'react-redux';
-import ForwardBack from '../navigation/ForwardBack';
 import CameraModule from '../modules/CameraModule';
 import ModalModule from '../modules/ModalModule';
 import {HStack} from '@gluestack-ui/themed';
@@ -14,7 +13,7 @@ import {StyledIcon} from '../components/StyledIcon';
 
 const Identity = props => {
   const modalRef = useRef(null);
-  const {navigation, id, route, actions} = props;
+  const {id, route, actions} = props;
   const next = route.params.next;
   const style = useContext(StylesContext);
   const deleteImage = () => {

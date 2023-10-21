@@ -5,7 +5,7 @@ import {
   DrawerItemList,
 } from '@react-navigation/drawer';
 import AppNavigator from '../navigation/AppNavigator';
-import Account from '../blocks/Account';
+import Account from '../pages/Account';
 import {useDrawerStatus} from '@react-navigation/drawer';
 import {View} from '@gluestack-ui/themed';
 import {DrawerContext} from '../contexts/DrawerContext';
