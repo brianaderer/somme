@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import {Center} from '@gluestack-ui/themed';
 import {StyledSlider} from '../components/StyledSlider';
 
-const Palette = props => {
+const Visual = props => {
   const {route, navigation, count} = props;
   const style = useContext(StylesContext);
   const next = route.params.next;
@@ -41,4 +41,4 @@ const mapDispatchToProps = dispatch => {
   return {actions};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Palette);
+export default connect(mapStateToProps, mapDispatchToProps)(Visual);
