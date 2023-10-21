@@ -4,11 +4,11 @@ import StylesContext from '../contexts/StylesContext';
 import {bindActionCreators} from 'redux';
 import {changeVisual} from '../actions/visual';
 import {connect} from 'react-redux';
-import {Center} from '@gluestack-ui/themed';
+import {Center, ScrollView} from '@gluestack-ui/themed';
 import {StyledSlider} from '../components/StyledSlider';
 import {StyledSwitch} from '../components/StyledSwitch';
 import {lookups} from '../assets/lookups';
-import { StyledColorPicker } from "../components/StyledColorPicker";
+import {StyledColorPicker} from '../components/StyledColorPicker';
 
 const Visual = props => {
   const {visual, actions} = props;
@@ -23,7 +23,7 @@ const Visual = props => {
   };
 
   return (
-    <View style={{flex: 1}}>
+    <ScrollView>
       <View style={style.homeStyles}>
         <Center w={300} h={100}>
           <StyledSlider
@@ -46,6 +46,9 @@ const Visual = props => {
             defaultValue={0}
             slug={'Concentration'}
           />
+        </Center>
+        <Center mb={'$16'} w={300} h={100}>
+          <StyledColorPicker />
         </Center>
         <Center w={300} h={100}>
           <StyledSlider
@@ -78,12 +81,9 @@ const Visual = props => {
             changeFX={Set}
           />
         </Center>
-        <Center w={300} h={100}>
-          <StyledColorPicker />
-        </Center>
         {/*<ForwardBack navigation={navigation} next={next} />*/}
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

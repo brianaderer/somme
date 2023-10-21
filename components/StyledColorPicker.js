@@ -1,5 +1,5 @@
 import {ColorSwatch} from './ColorSwatch';
-import {HStack} from '@gluestack-ui/themed';
+import {HStack, VStack} from '@gluestack-ui/themed';
 import React from 'react';
 
 export const StyledColorPicker = () => {
@@ -8,8 +8,19 @@ export const StyledColorPicker = () => {
     console.log(slug);
   };
   return (
-    <HStack>
-      <ColorSwatch fX={handlePress} slug={'Warning'} label={'Water White'} />
-    </HStack>
+    <VStack space={'lg'}>
+      <HStack space={'lg'}>
+        <ColorSwatch fX={handlePress} slug={'WaterWhite'} label={'Pale'} />
+        <ColorSwatch fX={handlePress} slug={'Straw'} label={'Straw'} />
+        <ColorSwatch fX={handlePress} slug={'Yellow'} label={'Yellow'} />
+        <ColorSwatch fX={handlePress} slug={'Gold'} label={'Gold'} />
+      </HStack>
+      <HStack space={'lg'}>
+        <ColorSwatch fX={handlePress} slug={'WaterWhite'} label={'Pale'} />
+        <ColorSwatch fX={handlePress} slug={'Straw'} label={'Straw'} />
+        <ColorSwatch fX={handlePress} slug={'Yellow'} label={'Yellow'} />
+        <ColorSwatch fX={handlePress} slug={'Gold'} label={'Gold'} />
+      </HStack>
+    </VStack>
   );
 };

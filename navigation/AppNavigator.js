@@ -3,6 +3,7 @@ import {BottomNavigation} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import screenConfig from '../screens/screenConfig';
 import {config} from '../config/gluestack-ui.config';
+import React from 'react';
 
 const Tab = createBottomTabNavigator();
 
@@ -23,7 +24,9 @@ export default function AppNavigator() {
           activeColor={sommeColors.sommeTextActive}
           inactiveColor={sommeColors.sommeTextChrome}
           theme={{colors: {secondaryContainer: sommeColors.sommeSecondary}}}
-          style={{backgroundColor: sommeColors.sommePrimary}}
+          style={{
+            backgroundColor: sommeColors.sommePrimary,
+          }}
           onTabPress={({route, preventDefault}) => {
             const event = navigation.emit({
               type: 'tabPress',

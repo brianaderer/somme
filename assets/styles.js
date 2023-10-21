@@ -25,6 +25,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     color: 'black',
+    paddingTop: 40,
   },
   container: {
     flex: 1,

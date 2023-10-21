@@ -11,6 +11,8 @@ export const ColorSwatch = props => {
     <VStack justifyContent={'center'} alignItems={'center'}>
       <StyledButton
         onPress={() => fX(color, slug)}
+        borderColor={'$white'}
+        borderWidth={'$4'}
         bg={color}
         scheme={'round'}
         p={'$4'}
