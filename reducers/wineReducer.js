@@ -9,7 +9,15 @@ const initialState = {
     label: '',
   },
   visual: {
-    foo: '',
+    Clarity: {
+      value: 0,
+      lookup: {
+        0: 'N/A',
+        1: 'Clear',
+        2: 'Hazy',
+        3: 'Turbid',
+      },
+    },
   },
 };
 const wineReducer = (state = initialState, action) => {

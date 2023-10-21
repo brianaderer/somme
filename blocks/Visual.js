@@ -8,7 +8,7 @@ import {Center} from '@gluestack-ui/themed';
 import {StyledSlider} from '../components/StyledSlider';
 
 const Visual = props => {
-  const {route, navigation, count} = props;
+  const {route} = props;
   const style = useContext(StylesContext);
   const next = route.params.next;
   const foo = bar => {
@@ -24,7 +24,14 @@ const Visual = props => {
     <View style={{flex: 1}}>
       <View style={style.homeStyles}>
         <Center w={300} h={100}>
-          <StyledSlider heading={'Foo'} lookup={lookup} changeFX={foo} min={0} max={3} defaultValue={0} />
+          <StyledSlider
+            heading={'Foo'}
+            lookup={lookup}
+            changeFX={foo}
+            min={0}
+            max={3}
+            defaultValue={0}
+          />
         </Center>
         {/*<ForwardBack navigation={navigation} next={next} />*/}
       </View>
