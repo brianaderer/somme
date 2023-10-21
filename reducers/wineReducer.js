@@ -8,13 +8,16 @@ const initialState = {
     vintage: '',
     label: '',
   },
+  visual: {
+    foo: '',
+  },
 };
 const wineReducer = (state = initialState, action) => {
   switch (action.type) {
-    case Constant.COUNTER_CHANGE:
+    case Constant.VISUAL_CHANGE:
       return {
         ...state,
-        count: action.payload,
+        visual: action.payload,
       };
     case Constant.ID_CHANGE:
       return {

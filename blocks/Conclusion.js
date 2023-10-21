@@ -2,8 +2,8 @@ import {Text, View} from 'react-native';
 import React, {useContext} from 'react';
 import StylesContext from '../contexts/StylesContext';
 import {bindActionCreators} from 'redux';
-import {changeCount} from '../actions/counts';
 import {connect} from 'react-redux';
+import {changeVisual} from "../actions/visual";
 import ForwardBack from '../navigation/ForwardBack';
 import CustomTabBar from '../navigation/CustomTabBar'; // <-- Import the custom tab bar here
 
@@ -23,11 +23,11 @@ const Conclusion = props => {
 };
 
 const mapStateToProps = state => ({
-  count: state.count,
+  visual: state.visual,
 });
 
 const mapDispatchToProps = dispatch => {
-  const actions = bindActionCreators({changeCount}, dispatch);
+  const actions = bindActionCreators({changeVisual}, dispatch);
   return {actions};
 };
 
