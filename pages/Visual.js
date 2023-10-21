@@ -44,7 +44,7 @@ const Visual = props => {
           slug={'Concentration'}
         />
       </Center>
-      <Center mb={'$12'} mt={'$8'} w={300} h={100}>
+      <Center mb={'$8'} mt={'$8'} w={300}>
         <StyledColorPicker />
       </Center>
       <Center w={300} h={100}>
