@@ -432,6 +432,8 @@ export const gluestackUIConfig = createConfig({
     },
     space: {
       px: '1px',
+      '-2': -2,
+      '-4': -4,
       '0': 0,
       '0.5': 2,
       '1': 4,

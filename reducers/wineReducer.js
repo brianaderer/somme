@@ -13,6 +13,7 @@ const initialState = {
     Concentration: 0,
     Extract: 0,
     Tearing: 0,
+    Gas: false,
   },
 };
 const wineReducer = (state = initialState, action) => {

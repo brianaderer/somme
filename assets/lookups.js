@@ -23,4 +23,8 @@ export const lookups = {
     2: 'Hazy',
     3: 'Turbid',
   },
+  Gas: {
+    false: 'No',
+    true: 'Yes',
+  },
 };

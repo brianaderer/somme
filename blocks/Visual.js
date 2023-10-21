@@ -6,6 +6,7 @@ import {changeVisual} from '../actions/visual';
 import {connect} from 'react-redux';
 import {Center} from '@gluestack-ui/themed';
 import {StyledSlider} from '../components/StyledSlider';
+import {StyledSwitch} from '../components/StyledSwitch';
 import {lookups} from '../assets/lookups';
 
 const Visual = props => {
@@ -52,7 +53,7 @@ const Visual = props => {
             changeFX={Set}
             min={0}
             max={3}
-            defaultValue={0}
+            defaultValue={false}
             slug={'Extract'}
           />
         </Center>
@@ -65,6 +66,15 @@ const Visual = props => {
             max={3}
             defaultValue={0}
             slug={'Tearing'}
+          />
+        </Center>
+        <Center w={300} h={100}>
+          <StyledSwitch
+            heading={'Gas Evidence'}
+            slug={'Gas'}
+            defaultValue={false}
+            lookup={lookups.Gas}
+            changeFX={Set}
           />
         </Center>
         {/*<ForwardBack navigation={navigation} next={next} />*/}
