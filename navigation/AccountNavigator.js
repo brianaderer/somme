@@ -12,12 +12,19 @@ import {DrawerContext} from '../contexts/DrawerContext';
 import {StyledButton} from '../components/StyledButton';
 import {StyledIcon} from '../components/StyledIcon'; // Import the context
 import {config} from '../config/gluestack-ui.config';
+import { useNavigation } from "@react-navigation/native";
 
 const Drawer = createDrawerNavigator();
 
 const CustomDrawerContent = props => {
+  const {navigation} = props;
   const isDrawerOpenStatus = useDrawerStatus() === 'open';
   const {setDrawerOpenState} = useContext(DrawerContext);
+  const {setNavigationRef} = useContext(DrawerContext);
+
+  useEffect(() => {
+    setNavigationRef(navigation);
+  }, [navigation, setNavigationRef]);
 
   useEffect(() => {
     setDrawerOpenState(isDrawerOpenStatus);
@@ -33,14 +40,14 @@ const CustomDrawerContent = props => {
 
 const AccountNavigator = ({children, user}) => {
   const sommeColors = config.tokens.colors;
-  const {navigation, isDrawerOpen} = useContext(DrawerContext); // Consume the navigation object and drawer open state
+  const {navigationRef, isDrawerOpen} = useContext(DrawerContext); // Consume the navigation object and drawer open state
   return (
     <View flex={1}>
       <View style={{position: 'absolute', top: 10, left: 10, zIndex: 1}}>
         <StyledButton
           scheme={'round'}
           title="Toggle Drawer"
-          onPress={() => navigation.toggleDrawer()}>
+          onPress={() => navigationRef?.toggleDrawer()}>
           <StyledIcon
             size={30}
             name={isDrawerOpen ? 'menu-open' : 'menu'}

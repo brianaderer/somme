@@ -11,12 +11,20 @@ const Palette = props => {
   const {route, navigation, count} = props;
   const style = useContext(StylesContext);
   const next = route.params.next;
-
+  const foo = bar => {
+    console.log(bar);
+  };
+  const lookup = {
+    0: 'inactive',
+    1: 'low',
+    2: 'medium',
+    3: 'high',
+  };
   return (
     <View style={{flex: 1}}>
       <View style={style.homeStyles}>
         <Center w={300} h={100}>
-          <StyledSlider min={0} max={3} defaultValue={0} />
+          <StyledSlider lookup={lookup} changefx={foo} min={0} max={3} defaultValue={0} />
         </Center>
         {/*<ForwardBack navigation={navigation} next={next} />*/}
       </View>

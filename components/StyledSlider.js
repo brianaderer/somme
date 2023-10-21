@@ -10,11 +10,14 @@ import {
 } from '@gluestack-ui/themed';
 import React from 'react';
 
-export const StyledSlider = ({min, max, defaultValue, lookup, heading}) => {
-  const handleChange = value => {
-    console.log(value);
-  };
-
+export const StyledSlider = ({
+  changefx,
+  min,
+  max,
+  defaultValue,
+  lookup,
+  heading,
+}) => {
   return (
     <VStack w={'$full'}>
       <HStack mb={'$4'} alignItems={'baseline'} justifyContent={'flex-start'}>
@@ -32,7 +35,7 @@ export const StyledSlider = ({min, max, defaultValue, lookup, heading}) => {
         isDisabled={false}
         isReversed={false}
         step={1}
-        onChange={handleChange}>
+        onChange={changefx}>
         <SliderTrack bg={'$sommeUIChrome'}>
           <SliderFilledTrack bg={'$sommeTextChrome'} />
         </SliderTrack>

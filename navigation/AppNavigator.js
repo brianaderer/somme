@@ -11,12 +11,7 @@ const Tab = createBottomTabNavigator();
 
 export default function AppNavigator() {
   const sommeColors = config.tokens.colors;
-  const navigation = useNavigation();
-  const {setNavigation} = useContext(DrawerContext);
 
-  useEffect(() => {
-    setNavigation(navigation);
-  }, [navigation, setNavigation]);
   return (
     <Tab.Navigator
       backBehavior={'order'}

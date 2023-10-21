@@ -20,7 +20,7 @@ import UserContext from './contexts/UserContext';
 import {useContext} from 'react';
 import Login from './blocks/Login.js';
 import AccountNavigator from './navigation/AccountNavigator';
-import {DrawerManager} from "./modules/DrawerManager";
+import {DrawerManager} from './modules/DrawerManager';
 
 LogBox.ignoreLogs(['Require cycle:']);
 
@@ -34,7 +34,7 @@ const MainComponent = () => {
         <GluestackUIProvider config={config}>
           <NavigationContainer>
             <DrawerManager>
-            {user ? <AccountNavigator user={user} /> : <Login />}
+              {user ? <AccountNavigator user={user} /> : <Login />}
             </DrawerManager>
           </NavigationContainer>
         </GluestackUIProvider>
