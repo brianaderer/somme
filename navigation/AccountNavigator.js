@@ -50,6 +50,7 @@ const AccountNavigator = ({children, user}) => {
       </View>
       <Drawer.Navigator
         screenOptions={{
+          swipeEnabled: false,
           drawerActiveTintColor: sommeColors.sommeTextChrome,
           drawerActiveBackgroundColor: sommeColors.sommeSecondary,
           headerShown: false,
@@ -58,7 +59,7 @@ const AccountNavigator = ({children, user}) => {
             paddingTop: 80,
           },
         }}
-        initialRouteName={'Account'}
+        initialRouteName={'Wines'}
         drawerContent={props => <CustomDrawerContent {...props} />}>
         <Drawer.Screen name="Wines" component={AppNavigator} />
         <Drawer.Screen
