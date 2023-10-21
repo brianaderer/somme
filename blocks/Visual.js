@@ -15,16 +15,16 @@ const Palette = props => {
     console.log(bar);
   };
   const lookup = {
-    0: 'inactive',
-    1: 'low',
-    2: 'medium',
-    3: 'high',
+    0: 'N/A',
+    1: 'Low',
+    2: 'Medium',
+    3: 'High',
   };
   return (
     <View style={{flex: 1}}>
       <View style={style.homeStyles}>
         <Center w={300} h={100}>
-          <StyledSlider lookup={lookup} changefx={foo} min={0} max={3} defaultValue={0} />
+          <StyledSlider heading={'Foo'} lookup={lookup} changeFX={foo} min={0} max={3} defaultValue={0} />
         </Center>
         {/*<ForwardBack navigation={navigation} next={next} />*/}
       </View>

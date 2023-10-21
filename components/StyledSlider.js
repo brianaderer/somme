@@ -8,22 +8,22 @@ import {
   HStack,
   Text,
 } from '@gluestack-ui/themed';
-import React from 'react';
+import React, { useState } from "react";
 
-export const StyledSlider = ({
-  changefx,
-  min,
-  max,
-  defaultValue,
-  lookup,
-  heading,
-}) => {
+
+export const StyledSlider = ({changeFX, min, max, defaultValue, lookup, heading}) => {
+  const [val, setVal] = useState(defaultValue);
+  const handleChange = value => {
+    setVal(value);
+    changeFX(value);
+  };
+
   return (
     <VStack w={'$full'}>
       <HStack mb={'$4'} alignItems={'baseline'} justifyContent={'flex-start'}>
-        <Heading>Foo:</Heading>
+        <Heading>{heading}:</Heading>
         <Text fontSize={'$lg'} ml={'$2'}>
-          Bar
+          {lookup[val]}
         </Text>
       </HStack>
       <Slider
@@ -35,7 +35,7 @@ export const StyledSlider = ({
         isDisabled={false}
         isReversed={false}
         step={1}
-        onChange={changefx}>
+        onChange={handleChange}>
         <SliderTrack bg={'$sommeUIChrome'}>
           <SliderFilledTrack bg={'$sommeTextChrome'} />
         </SliderTrack>
