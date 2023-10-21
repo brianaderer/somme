@@ -8,29 +8,62 @@ import {Center} from '@gluestack-ui/themed';
 import {StyledSlider} from '../components/StyledSlider';
 
 const Visual = props => {
+  const {visual, actions} = props;
   const {route} = props;
   const style = useContext(StylesContext);
   const next = route.params.next;
-  const foo = bar => {
-    console.log(bar);
+  const Set = (value, slug) => {
+    actions.changeVisual({
+      ...visual,
+      [slug]: {...visual[slug], value: value},
+    });
   };
-  const lookup = {
-    0: 'N/A',
-    1: 'Low',
-    2: 'Medium',
-    3: 'High',
-  };
+
   return (
     <View style={{flex: 1}}>
       <View style={style.homeStyles}>
         <Center w={300} h={100}>
           <StyledSlider
-            heading={'Foo'}
-            lookup={lookup}
-            changeFX={foo}
+            heading={'Clarity'}
+            lookup={visual.Clarity.lookup}
+            changeFX={Set}
             min={0}
             max={3}
             defaultValue={0}
+            slug={'Clarity'}
+          />
+        </Center>
+        <Center w={300} h={100}>
+          <StyledSlider
+            heading={'Concentration'}
+            lookup={visual.Concentration.lookup}
+            changeFX={Set}
+            min={0}
+            max={3}
+            defaultValue={0}
+            slug={'Concentration'}
+          />
+        </Center>
+        <Center w={300} h={100}>
+          <StyledSlider
+            heading={'Extract/Staining'}
+            lookup={visual.Extract.lookup}
+            changeFX={Set}
+            min={0}
+            max={3}
+            defaultValue={0}
+            slug={'Extract'}
+          />
+        </Center>
+        <Center w={300} h={100}>
+          <StyledSlider
+            heading={'Tearing'}
+            lookup={visual.Tearing.lookup}
+            changeFX={Set}
+            min={0}
+            max={3}
+            defaultValue={0}
+            slug={'Tearing'}
           />
         </Center>
         {/*<ForwardBack navigation={navigation} next={next} />*/}
@@ -40,9 +73,8 @@ const Visual = props => {
 };
 
 const mapStateToProps = state => ({
-  visual: state.visual,
+  visual: state.state.visual,
 });
-
 const mapDispatchToProps = dispatch => {
   const actions = bindActionCreators({changeVisual}, dispatch);
   return {actions};

@@ -17,11 +17,12 @@ export const StyledSlider = ({
   defaultValue,
   lookup,
   heading,
+  slug,
 }) => {
   const [val, setVal] = useState(defaultValue);
   const handleChange = value => {
     setVal(value);
-    changeFX(value);
+    changeFX(value, slug);
   };
 
   return (

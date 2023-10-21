@@ -18,6 +18,33 @@ const initialState = {
         3: 'Turbid',
       },
     },
+    Concentration: {
+      value: 0,
+      lookup: {
+        0: 'N/A',
+        1: 'Pale',
+        2: 'Medium',
+        3: 'Deep',
+      },
+    },
+    Extract: {
+      value: 0,
+      lookup: {
+        0: 'None',
+        1: 'Light',
+        2: 'Medium',
+        3: 'Deep',
+      },
+    },
+    Tearing: {
+      value: 0,
+      lookup: {
+        0: 'N/A',
+        1: 'Light',
+        2: 'Medium',
+        3: 'Heavy',
+      },
+    },
   },
 };
 const wineReducer = (state = initialState, action) => {
