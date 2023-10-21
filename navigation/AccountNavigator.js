@@ -45,6 +45,9 @@ const AccountNavigator = ({children, user}) => {
     <View flex={1}>
       <View style={{position: 'absolute', top: 10, left: 10, zIndex: 1}}>
         <StyledButton
+          {...(isDrawerOpen
+            ? {bg: '$sommeSecondary'}
+            : {bg: '$sommeUIBackground'})}
           scheme={'round'}
           title="Toggle Drawer"
           onPress={() => navigationRef?.toggleDrawer()}>

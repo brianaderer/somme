@@ -8,7 +8,7 @@ import {connect} from 'react-redux';
 import ForwardBack from '../navigation/ForwardBack';
 import CameraModule from '../modules/CameraModule';
 import ModalModule from '../modules/ModalModule';
-import {ButtonIcon, EditIcon, HStack} from '@gluestack-ui/themed';
+import {HStack} from '@gluestack-ui/themed';
 import {StyledButton} from '../components/StyledButton';
 import {StyledIcon} from '../components/StyledIcon';
 

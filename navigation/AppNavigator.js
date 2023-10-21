@@ -1,11 +1,8 @@
-import React, {useContext, useEffect} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {BottomNavigation} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import screenConfig from '../screens/screenConfig';
 import {config} from '../config/gluestack-ui.config';
-import {useNavigation} from '@react-navigation/native';
-import {DrawerContext} from '../contexts/DrawerContext';
 
 const Tab = createBottomTabNavigator();
 

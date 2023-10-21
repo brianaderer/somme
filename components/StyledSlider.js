@@ -8,10 +8,16 @@ import {
   HStack,
   Text,
 } from '@gluestack-ui/themed';
-import React, { useState } from "react";
+import React, {useState} from 'react';
 
-
-export const StyledSlider = ({changeFX, min, max, defaultValue, lookup, heading}) => {
+export const StyledSlider = ({
+  changeFX,
+  min,
+  max,
+  defaultValue,
+  lookup,
+  heading,
+}) => {
   const [val, setVal] = useState(defaultValue);
   const handleChange = value => {
     setVal(value);
