@@ -9,7 +9,7 @@ export const StyledColorPicker = props => {
   const [type, setType] = useState('');
   const handlePress = (wineColor, wineType, slug) => {
     changeFX({
-      pColor: wineColor,
+      pColor: {[slug]: wineColor},
       type: wineType,
     });
     setType(wineType);
