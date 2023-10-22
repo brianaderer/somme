@@ -4,14 +4,14 @@ import React from 'react';
 import {config} from '../config/gluestack-ui.config';
 export const ColorSwatch = props => {
   const colors = config.tokens.colors;
-  const {fX, slug, label, type} = props;
+  const {fX, slug, label, type, focused} = props;
   const colorID = 'somme' + slug;
   const color = colors[colorID];
   return (
     <VStack justifyContent={'center'} alignItems={'center'}>
       <StyledButton
         onPress={() => fX(color, type, slug)}
-        borderColor={'$white'}
+        borderColor={focused ? '$sommeTextChrome' : '$white'}
         borderWidth={'$4'}
         bg={color}
         scheme={'round'}

@@ -19,7 +19,6 @@ const Visual = props => {
       ...updates,
     });
   };
-  console.log(visual);
 
   return (
     <ScreenWrapper>

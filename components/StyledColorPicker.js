@@ -13,7 +13,7 @@ export const StyledColorPicker = props => {
       type: wineType,
     });
     setType(wineType);
-    setColor(wineColor);
+    setColor(slug);
   };
   const swatches = [
     {slug: 'WaterWhite', label: 'Pale', type: 'White'},
