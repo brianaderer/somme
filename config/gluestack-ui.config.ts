@@ -27,7 +27,7 @@ export const gluestackUIConfig = createConfig({
   } as const,
   tokens: {
     colors: {
-      sommeWaterWhite: '#fdffe5',
+      sommePale: '#fdffe5',
       sommeStraw: '#faffb1',
       sommeYellow: '#fff898',
       sommeGold: '#ffee81',
