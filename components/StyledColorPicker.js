@@ -1,26 +1,33 @@
 import {ColorSwatch} from './ColorSwatch';
 import {Heading, View} from '@gluestack-ui/themed';
-import React from 'react';
+import React, {useState} from 'react';
+import {changeVisual} from '../actions/visual';
 
-export const StyledColorPicker = () => {
-  const handlePress = (val, slug) => {
-    console.log(val);
-    console.log(slug);
+export const StyledColorPicker = props => {
+  const {changeFX} = props;
+  const [color, setColor] = useState('');
+  const [type, setType] = useState('');
+  const handlePress = (wineColor, wineType, slug) => {
+    changeFX({
+      pColor: wineColor,
+      type: wineType,
+    });
+    setType(wineType);
+    setColor(wineColor);
   };
-
   const swatches = [
-    {slug: 'WaterWhite', label: 'Pale', class: 'White'},
-    {slug: 'Straw', label: 'Straw', class: 'White'},
-    {slug: 'Yellow', label: 'Yellow', class: 'White'},
-    {slug: 'Gold', label: 'Gold', class: 'White'},
-    {slug: 'Purple', label: 'Purple', class: 'Red'},
-    {slug: 'Ruby', label: 'Ruby', class: 'Red'},
-    {slug: 'Red', label: 'Red', class: 'Red'},
-    {slug: 'Garnet', label: 'Garnet', class: 'Red'},
-    {slug: 'Pink', label: 'Pink', class: 'Rose'},
-    {slug: 'Rose', label: 'Rose', class: 'Rose'},
-    {slug: 'Salmon', label: 'Salmon', class: 'Rose'},
-    {slug: 'Orange', label: 'Orange', class: 'Orange'},
+    {slug: 'WaterWhite', label: 'Pale', type: 'White'},
+    {slug: 'Straw', label: 'Straw', type: 'White'},
+    {slug: 'Yellow', label: 'Yellow', type: 'White'},
+    {slug: 'Gold', label: 'Gold', type: 'White'},
+    {slug: 'Purple', label: 'Purple', type: 'Red'},
+    {slug: 'Ruby', label: 'Ruby', type: 'Red'},
+    {slug: 'Red', label: 'Red', type: 'Red'},
+    {slug: 'Garnet', label: 'Garnet', type: 'Red'},
+    {slug: 'Pink', label: 'Pink', type: 'Rose'},
+    {slug: 'Rose', label: 'Rose', type: 'Rose'},
+    {slug: 'Salmon', label: 'Salmon', type: 'Rose'},
+    {slug: 'Orange', label: 'Orange', type: 'Orange'},
   ];
 
   return (
@@ -35,9 +42,11 @@ export const StyledColorPicker = () => {
         {swatches.map(swatch => (
           <View style={{width: '23%', margin: '1%'}} key={swatch.slug}>
             <ColorSwatch
+              focused={color === swatch.slug}
               fX={handlePress}
               slug={swatch.slug}
               label={swatch.label}
+              type={swatch.type}
             />
           </View>
         ))}

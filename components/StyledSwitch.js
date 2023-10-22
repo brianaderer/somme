@@ -8,7 +8,7 @@ export const StyledSwitch = props => {
   const {changeFX, heading, slug, lookup, defaultValue} = props;
   const [val, setVal] = useState(defaultValue);
   const handleChange = value => {
-    changeFX(value, slug);
+    changeFX({[slug]: value});
     setVal(value);
   };
   return (

@@ -22,7 +22,7 @@ export const StyledSlider = ({
   const [val, setVal] = useState(defaultValue);
   const handleChange = value => {
     setVal(value);
-    changeFX(value, slug);
+    changeFX({[slug]: value});
   };
 
   return (

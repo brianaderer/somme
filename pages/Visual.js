@@ -13,12 +13,13 @@ const Visual = props => {
   const {visual, actions} = props;
   const {route} = props;
   const next = route.params.next;
-  const Set = (value, slug) => {
+  const Set = updates => {
     actions.changeVisual({
       ...visual,
-      [slug]: value,
+      ...updates,
     });
   };
+  console.log(visual);
 
   return (
     <ScreenWrapper>
@@ -45,7 +46,7 @@ const Visual = props => {
         />
       </Center>
       <Center mb={'$8'} mt={'$8'} w={300}>
-        <StyledColorPicker />
+        <StyledColorPicker changeFX={Set} slug={'pColor'} />
       </Center>
       <Center w={300} h={100}>
         <StyledSlider

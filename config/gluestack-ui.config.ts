@@ -29,7 +29,7 @@ export const gluestackUIConfig = createConfig({
     colors: {
       sommeWaterWhite: '#fdffe5',
       sommeStraw: '#faffb1',
-      sommeYellow: '#fffaa0',
+      sommeYellow: '#fff898',
       sommeGold: '#ffee81',
       sommePurple: '#96284a',
       sommeRuby: '#dc103f',
