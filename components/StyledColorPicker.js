@@ -1,7 +1,6 @@
 import {ColorSwatch} from './ColorSwatch';
 import {Heading, View, HStack, Text} from '@gluestack-ui/themed';
 import React, {useState} from 'react';
-import {changeVisual} from '../actions/visual';
 
 export const StyledColorPicker = props => {
   const {changeFX} = props;

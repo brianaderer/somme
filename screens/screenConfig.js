@@ -1,7 +1,7 @@
 import Identity from '../pages/Identity';
 import Visual from '../pages/Visual';
 import Nose from '../pages/Nose';
-import Palette from '../pages/Palette';
+import Palate from '../pages/Palette';
 import Conclusion from '../pages/Conclusion';
 
 const screenConfig = [
@@ -27,8 +27,8 @@ const screenConfig = [
     unfocusedIcon: 'pot-outline',
   },
   {
-    component: Palette,
-    name: 'Palette',
+    component: Palate,
+    name: 'Palate',
     next: 'Conclusion',
     focusedIcon: 'bottle-wine',
     unfocusedIcon: 'bottle-wine-outline',
