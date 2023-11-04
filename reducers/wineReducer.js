@@ -1,4 +1,5 @@
 import * as Constant from '../constants';
+import {useEffect} from "react";
 
 const initialState = {
   count: 0,

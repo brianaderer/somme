@@ -3,12 +3,25 @@ import {BottomNavigation} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import screenConfig from '../screens/screenConfig';
 import {config} from '../config/gluestack-ui.config';
-import React from 'react';
+import React, {useEffect} from 'react';
+import {connect} from 'react-redux';
 
 const Tab = createBottomTabNavigator();
 
-export default function WineNavigator() {
+const WineNavigator = props => {
+  const {wineProps} = props;
   const sommeColors = config.tokens.colors;
+  useEffect(() => {
+    // Your update logic here
+    console.log('Staet has been updated', wineProps);
+
+    // You might also want to do something when the component unmounts,
+    // for that, you return a function from here which will be the cleanup function.
+    return () => {
+      // Clean up logic here
+      console.log('Cleanup when Visual is unmounted or before next update');
+    };
+  }, [wineProps]);
 
   return (
     <Tab.Navigator
@@ -16,12 +29,6 @@ export default function WineNavigator() {
       sceneContainerStyle={{backgroundColor: sommeColors.sommeMainBackground}}
       screenOptions={{
         headerShown: false,
-      }}
-      screenListeners={{
-        state: e => {
-          // Do something with the state
-          console.log('state changed', e.data);
-        },
       }}
       tabBar={({navigation, state, descriptors, insets}) => (
         <BottomNavigation.Bar
@@ -83,4 +90,8 @@ export default function WineNavigator() {
       })}
     </Tab.Navigator>
   );
-}
+};
+const mapStateToProps = state => ({
+  wineProps: state.state,
+});
+export default connect(mapStateToProps)(WineNavigator);
