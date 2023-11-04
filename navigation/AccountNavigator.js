@@ -4,7 +4,7 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
-import AppNavigator from '../navigation/AppNavigator';
+import WineNavigator from './WineNavigator';
 import Account from '../pages/Account';
 import {useDrawerStatus} from '@react-navigation/drawer';
 import {View} from '@gluestack-ui/themed';
@@ -71,7 +71,7 @@ const AccountNavigator = ({children, user}) => {
         }}
         initialRouteName={'Wines'}
         drawerContent={props => <CustomDrawerContent {...props} />}>
-        <Drawer.Screen name="Wines" component={AppNavigator} />
+        <Drawer.Screen name="Wines" component={WineNavigator} />
         <Drawer.Screen
           name="Account"
           component={Account}

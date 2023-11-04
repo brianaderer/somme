@@ -3,7 +3,7 @@ import React, {useContext} from 'react';
 import StylesContext from '../contexts/StylesContext';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {changeVisual} from "../actions/visual";
+import {changeVisual} from '../actions/visual';
 import ForwardBack from '../navigation/ForwardBack';
 import CustomTabBar from '../navigation/CustomTabBar'; // <-- Import the custom tab bar here
 

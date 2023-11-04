@@ -7,7 +7,7 @@ import React from 'react';
 
 const Tab = createBottomTabNavigator();
 
-export default function AppNavigator() {
+export default function WineNavigator() {
   const sommeColors = config.tokens.colors;
 
   return (
@@ -16,6 +16,12 @@ export default function AppNavigator() {
       sceneContainerStyle={{backgroundColor: sommeColors.sommeMainBackground}}
       screenOptions={{
         headerShown: false,
+      }}
+      screenListeners={{
+        state: e => {
+          // Do something with the state
+          console.log('state changed', e.data);
+        },
       }}
       tabBar={({navigation, state, descriptors, insets}) => (
         <BottomNavigation.Bar
