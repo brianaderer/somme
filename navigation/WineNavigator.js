@@ -5,6 +5,7 @@ import screenConfig from '../screens/screenConfig';
 import {config} from '../config/gluestack-ui.config';
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
+import saveWine from '../utilities/saveWine';
 
 const Tab = createBottomTabNavigator();
 
@@ -12,15 +13,7 @@ const WineNavigator = props => {
   const {wineProps} = props;
   const sommeColors = config.tokens.colors;
   useEffect(() => {
-    // Your update logic here
-    console.log('Staet has been updated', wineProps);
-
-    // You might also want to do something when the component unmounts,
-    // for that, you return a function from here which will be the cleanup function.
-    return () => {
-      // Clean up logic here
-      console.log('Cleanup when Visual is unmounted or before next update');
-    };
+    saveWine(wineProps);
   }, [wineProps]);
 
   return (
