@@ -5,6 +5,7 @@ import {firebase} from '@react-native-firebase/app';
 const winesCollection = firestore().collection('wines');
 export const addWine = async props => {
   const {uid, location, meta, actions} = props;
+  actions.resetState();
   const dateTime = firebase.firestore.FieldValue.serverTimestamp();
   winesCollection
     .add({

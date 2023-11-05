@@ -8,8 +8,10 @@ import {addWine} from '../utilities/addWine';
 import {useLocation} from '../contexts/LocationContext';
 import {bindActionCreators} from 'redux';
 import {changeMeta} from '../actions/meta';
+import {resetState} from "../actions/reset";
 import {connect} from 'react-redux';
 import firestore from '@react-native-firebase/firestore';
+import StyledWineLink from "../components/StyledWineLink";
 
 const Wines = props => {
   const [retrievedWines, setRetrievedWines] = useState([]);
@@ -32,7 +34,7 @@ const Wines = props => {
       });
     // Stop listening for updates when no longer required
     return () => wine();
-  });
+  }, [uid]);
   const addWineHandler = () => {
     addWine({uid, location, meta, actions}).then(
       navigation.navigate('New Wine'),
@@ -43,6 +45,9 @@ const Wines = props => {
     <View style={{flex: 1}}>
       <View style={style.homeStyles}>
         <Text style={style.baseText}>Wines Screen</Text>
+        {retrievedWines.map(wine => {
+          return <StyledWineLink uid={uid} key={wine.id} wine={wine} />;
+        })}
         <StyledButton scheme={'outline'} onPress={() => addWineHandler()}>
           <StyledButtonText>Add a Wine</StyledButtonText>
         </StyledButton>
@@ -55,7 +60,7 @@ const mapStateToProps = state => ({
   meta: state.state.meta,
 });
 const mapDispatchToProps = dispatch => {
-  const actions = bindActionCreators({changeMeta}, dispatch);
+  const actions = bindActionCreators({changeMeta, resetState}, dispatch);
   return {actions};
 };
 

@@ -40,6 +40,8 @@ const wineReducer = (state = initialState, action) => {
         ...state,
         meta: action.payload,
       };
+    case Constant.RESET_STATE:
+      return initialState; // Here we just return the initialState
     default:
       return state;
   }

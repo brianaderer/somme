@@ -13,7 +13,6 @@ import {DrawerContext} from '../contexts/DrawerContext';
 import {StyledButton} from '../components/StyledButton';
 import {StyledIcon} from '../components/StyledIcon'; // Import the context
 import {config} from '../config/gluestack-ui.config';
-import {requestLocationPermission} from '../utilities/permissions';
 
 const Drawer = createDrawerNavigator();
 
