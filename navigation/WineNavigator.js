@@ -3,17 +3,19 @@ import {BottomNavigation} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import screenConfig from '../screens/screenConfig';
 import {config} from '../config/gluestack-ui.config';
-import React, {useEffect} from 'react';
+import React, {useEffect, useContext} from 'react';
 import {connect} from 'react-redux';
 import saveWine from '../utilities/saveWine';
+import UserContext from '../contexts/UserContext';
 
 const Tab = createBottomTabNavigator();
 
 const WineNavigator = props => {
+  const {user, initializing} = useContext(UserContext);
   const {wineProps} = props;
   const sommeColors = config.tokens.colors;
   useEffect(() => {
-    saveWine(wineProps);
+    saveWine({wineProps, user});
   }, [wineProps]);
 
   return (
