@@ -31,6 +31,7 @@ const Visual = props => {
           max={3}
           defaultValue={0}
           slug={'Clarity'}
+          value={visual.Clarity}
         />
       </Center>
       <Center w={300} h={100}>
@@ -42,10 +43,11 @@ const Visual = props => {
           max={3}
           defaultValue={0}
           slug={'Concentration'}
+          value={visual.Concentration}
         />
       </Center>
       <Center mb={'$8'} mt={'$8'} w={300}>
-        <StyledColorPicker changeFX={Set} slug={'pColor'} />
+        <StyledColorPicker changeFX={Set} slug={'pColor'} value={visual.pColor.slug} />
       </Center>
       <Center w={300} h={100}>
         <StyledSlider
@@ -56,6 +58,7 @@ const Visual = props => {
           max={3}
           defaultValue={0}
           slug={'Extract'}
+          value={visual.Extract}
         />
       </Center>
       <Center w={300} h={100}>
@@ -67,6 +70,7 @@ const Visual = props => {
           max={3}
           defaultValue={0}
           slug={'Tearing'}
+          value={visual.Tearing}
         />
       </Center>
       <Center w={300} h={100}>
@@ -76,6 +80,7 @@ const Visual = props => {
           defaultValue={false}
           lookup={lookups.Gas}
           changeFX={Set}
+          value={visual.Gas}
         />
       </Center>
       {/*<ForwardBack navigation={navigation} next={next} />*/}

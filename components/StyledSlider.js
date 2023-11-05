@@ -8,20 +8,19 @@ import {
   HStack,
   Text,
 } from '@gluestack-ui/themed';
-import React, {useState} from 'react';
+import React from 'react';
 
 export const StyledSlider = ({
   changeFX,
   min,
   max,
-  defaultValue,
+  value, // Now we take value from props instead of using local state
   lookup,
   heading,
   slug,
 }) => {
-  const [val, setVal] = useState(defaultValue);
+  // No need for useState, since we're going to use value from props
   const handleChange = value => {
-    setVal(value);
     changeFX({[slug]: value});
   };
 
@@ -30,11 +29,11 @@ export const StyledSlider = ({
       <HStack mb={'$4'} alignItems={'baseline'} justifyContent={'flex-start'}>
         <Heading>{heading}:</Heading>
         <Text fontSize={'$lg'} ml={'$2'}>
-          {lookup[val]}
+          {lookup[value]}
         </Text>
       </HStack>
       <Slider
-        defaultValue={defaultValue}
+        value={value} // Use the value from props
         minValue={min}
         maxValue={max}
         size="lg"

@@ -1,19 +1,17 @@
 import {changeMeta} from '../actions/meta';
 import {changeId} from '../actions/id';
 import {changeVisual} from '../actions/visual';
-export const setWine = async ({ snapshot, dispatch, id }) => {
+export const setWine = async ({snapshot, dispatch, id}) => {
   if (snapshot.exists) {
     // Extract the data from the snapshot
     const data = snapshot.data();
-
-    console.log(data);
 
     // Assuming the data object has the properties `meta`, `id`, and `visual` at the top level
     const meta = {
       ...data,
       firestoreID: id,
     };
-    async function querySubCol(){
+    async function querySubCol() {
       const attrsSnapshot = await snapshot.ref.collection('attr').get();
       let id = {};
       let visual = {};
@@ -43,7 +41,6 @@ export const setWine = async ({ snapshot, dispatch, id }) => {
     // if (meta && meta.timestamp && meta.timestamp.toDate) {
     //   meta.timestamp = meta.timestamp.toDate();
     // }
-
   } else {
     console.log('Snapshot does not exist');
   }

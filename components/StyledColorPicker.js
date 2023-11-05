@@ -3,14 +3,12 @@ import {Heading, View, HStack, Text} from '@gluestack-ui/themed';
 import React, {useState} from 'react';
 
 export const StyledColorPicker = props => {
-  const {changeFX} = props;
-  const [color, setColor] = useState([]);
+  const {changeFX, value} = props;
   const handlePress = (wineColor, wineType, slug) => {
     changeFX({
-      pColor: {[slug]: wineColor},
+      pColor: {val: wineColor, slug: slug},
       type: wineType,
     });
-    setColor([slug, wineColor]);
   };
   const swatches = [
     {slug: 'Pale', label: 'Pale', type: 'White'},
@@ -31,7 +29,7 @@ export const StyledColorPicker = props => {
     <View flex={1} h={'$full'}>
       <HStack alignItems={'$baseline'}>
         <Heading>Primary Color: </Heading>
-        <Text>{color[0]}</Text>
+        <Text>{value}</Text>
       </HStack>
       <View
         style={{
@@ -42,7 +40,7 @@ export const StyledColorPicker = props => {
         {swatches.map(swatch => (
           <View style={{width: '23%', margin: '1%'}} key={swatch.slug}>
             <ColorSwatch
-              focused={color[0] === swatch.slug}
+              focused={value === swatch.slug}
               fX={handlePress}
               slug={swatch.slug}
               label={swatch.label}

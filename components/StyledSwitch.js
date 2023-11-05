@@ -5,11 +5,9 @@ import React, {useState} from 'react';
 const GluestackSwitch = styled(Switch, {}, {});
 
 export const StyledSwitch = props => {
-  const {changeFX, heading, slug, lookup, defaultValue} = props;
-  const [val, setVal] = useState(defaultValue);
+  const {changeFX, heading, slug, lookup, defaultValue, value} = props;
   const handleChange = value => {
     changeFX({[slug]: value});
-    setVal(value);
   };
   return (
     <VStack alignItems={'flex-start'} w={'$full'}>
@@ -20,7 +18,7 @@ export const StyledSwitch = props => {
         w={'$full'}>
         <Heading>{heading}:</Heading>
         <Text fontSize={'$lg'} ml={'$2'}>
-          {lookup[val]}
+          {lookup[value]}
         </Text>
       </HStack>
       <HStack ml={-8}>
