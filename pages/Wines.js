@@ -46,7 +46,14 @@ const Wines = props => {
       <View style={style.homeStyles}>
         <Text style={style.baseText}>Wines Screen</Text>
         {retrievedWines.map(wine => {
-          return <StyledWineLink uid={uid} key={wine.id} wine={wine} />;
+          return (
+            <StyledWineLink
+              navigation={navigation}
+              uid={uid}
+              key={wine.id}
+              wine={wine}
+            />
+          );
         })}
         <StyledButton scheme={'outline'} onPress={() => addWineHandler()}>
           <StyledButtonText>Add a Wine</StyledButtonText>

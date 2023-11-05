@@ -18,7 +18,7 @@ export const addWine = async props => {
       actions.changeMeta({
         owner: uid,
         location: location,
-        ID: docRef.id,
+        firestoreID: docRef.id,
       });
     })
     .catch(function (error) {

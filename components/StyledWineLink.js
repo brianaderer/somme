@@ -1,24 +1,22 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {useDispatch} from 'react-redux';
 import {setWine} from '../utilities/setWine';
 import {StyledButtonText} from './StyledButtonText';
 import {StyledButton} from './StyledButton';
-import firestore from "@react-native-firebase/firestore";
+import firestore from '@react-native-firebase/firestore';
+import {materializeAll} from 'firebase-tools/lib/functionsConfig';
 
 const StyledWineLink = props => {
-  const {wine, uid} = props;
-  const [firestoreData, setFirestoreData] = useState(null);
+  const {wine, uid, navigation} = props;
   const dispatch = useDispatch();
   const queryFirestore = async () => {
-    return await firestore()
-      .collection('wines')
-      .doc(wine.id)
-      .get();
+    return await firestore().collection('wines').doc(wine.id).get();
   };
   const handleSetWine = () => {
     queryFirestore().then(snapshot => {
+      const id = wine.id;
       if (snapshot) {
-        setWine(snapshot, dispatch);
+        setWine({snapshot, dispatch, id}).then(navigation.navigate('New Wine'));
       }
     });
   };
