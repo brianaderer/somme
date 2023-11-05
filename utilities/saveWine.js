@@ -14,6 +14,7 @@ export const saveWine = async ({wineProps, user, location}) => {
     await docRef.update({
       timestamp: dateTime,
       owner: user.providerData[0].uid,
+      location: location,
     });
     await docRef.collection('attr').doc('visual').set(visual, {merge: true});
     await docRef.collection('attr').doc('id').set(id, {merge: true});

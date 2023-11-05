@@ -6,7 +6,8 @@ export const requestLocationPermission = async () => {
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
       {
         title: 'Location Access Required',
-        message: 'This app needs to access your location',
+        message:
+          'We would like to access your location to help you track your wines by tasting location.',
       },
     );
     if (granted === PermissionsAndroid.RESULTS.GRANTED) {

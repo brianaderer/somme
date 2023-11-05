@@ -7,12 +7,12 @@ import React, {useEffect, useContext} from 'react';
 import {connect} from 'react-redux';
 import {saveWine} from '../utilities/saveWine';
 import UserContext from '../contexts/UserContext';
-import { useLocation } from "../contexts/LocationContext";
+import {useLocation} from '../contexts/LocationContext';
 
 const Tab = createBottomTabNavigator();
 
 const WineNavigator = props => {
-  const { location, requestLocation } = useLocation();
+  const {location, requestLocation} = useLocation();
   const {user, initializing} = useContext(UserContext);
   const {wineProps} = props;
   const sommeColors = config.tokens.colors;
