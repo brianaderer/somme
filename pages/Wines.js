@@ -1,20 +1,25 @@
 import {View, Text} from '@gluestack-ui/themed';
 import {StyledButton} from '../components/StyledButton';
 import {StyledButtonText} from '../components/StyledButtonText';
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import StylesContext from '../contexts/StylesContext';
 import UserContext from '../contexts/UserContext';
 import {addWine} from '../utilities/addWine';
-import { useLocation } from "../contexts/LocationContext";
-import { bindActionCreators } from "redux";
-import { changeMeta } from "../actions/meta";
-import { connect } from "react-redux";
+import {useLocation} from '../contexts/LocationContext';
+import {bindActionCreators} from 'redux';
+import {changeMeta} from '../actions/meta';
+import {connect} from 'react-redux';
+import {getWines} from '../utilities/getWines';
 
 const Wines = props => {
+  const [retrievedWines, setRetrievedWines] = useState([]);
   const {location, requestLocation} = useLocation();
   const {navigation, meta, actions} = props;
   const {user, initializing} = useContext(UserContext);
   const uid = user.providerData[0].uid;
+  getWines({uid}).then(data => {
+    console.log(data.docs);
+  });
   const addWineHandler = () => {
     addWine({uid, location, meta, actions}).then(
       navigation.navigate('New Wine'),

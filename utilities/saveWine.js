@@ -4,7 +4,7 @@ import firestore from '@react-native-firebase/firestore';
 const winesCollection = firestore().collection('wines');
 
 export const saveWine = async ({wineProps}) => {
-  const docID = 'firstWine';
+  const docID = wineProps.meta.ID;
   const {id, visual} = wineProps;
   const docRef = winesCollection.doc(docID);
   try {
