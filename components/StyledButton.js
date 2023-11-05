@@ -11,6 +11,13 @@ export const StyledButton = styled(
     variants: {
       scheme: {
         solid: {bg: '$sommeUIBackground'},
+        expand: {
+          p: '$4',
+          w: '$3/4',
+          rounded: '$lg',
+          mb: '$2',
+          bg: '$sommeSecondary',
+        },
         round: {
           alignItems: 'center',
           justifyContent: 'center',

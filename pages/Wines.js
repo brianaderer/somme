@@ -44,7 +44,6 @@ const Wines = props => {
   return (
     <View style={{flex: 1}}>
       <View style={style.homeStyles}>
-        <Text style={style.baseText}>Wines Screen</Text>
         {retrievedWines.map(wine => {
           return (
             <StyledWineLink

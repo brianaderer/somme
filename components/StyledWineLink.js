@@ -22,7 +22,7 @@ const StyledWineLink = props => {
   };
 
   return (
-    <StyledButton scheme={'solid'} onPress={handleSetWine}>
+    <StyledButton scheme={'expand'} onPress={handleSetWine}>
       <StyledButtonText>{wine.id}</StyledButtonText>
     </StyledButton>
   );
