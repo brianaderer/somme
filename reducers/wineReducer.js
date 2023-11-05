@@ -1,6 +1,12 @@
 import * as Constant from '../constants';
 
 const initialState = {
+  meta: {
+    owner: 1,
+    location: null,
+    timestamp: '',
+    ID: 0,
+  },
   id: {
     producer: '',
     cuvee: '',
@@ -28,6 +34,11 @@ const wineReducer = (state = initialState, action) => {
       return {
         ...state,
         id: action.payload,
+      };
+    case Constant.META_CHANGE:
+      return {
+        ...state,
+        meta: action.payload,
       };
     default:
       return state;
