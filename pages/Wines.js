@@ -9,7 +9,6 @@ import {useLocation} from '../contexts/LocationContext';
 import {bindActionCreators} from 'redux';
 import {changeMeta} from '../actions/meta';
 import {connect} from 'react-redux';
-import {getWines} from '../utilities/getWines';
 import firestore from '@react-native-firebase/firestore';
 
 const Wines = props => {
