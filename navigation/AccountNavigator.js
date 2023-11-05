@@ -5,7 +5,7 @@ import {
   DrawerItemList,
 } from '@react-navigation/drawer';
 import WineNavigator from './WineNavigator';
-import Wines from "../pages/Wines";
+import Wines from '../pages/Wines';
 import Account from '../pages/Account';
 import {useDrawerStatus} from '@react-navigation/drawer';
 import {View} from '@gluestack-ui/themed';
@@ -18,7 +18,6 @@ import {requestLocationPermission} from '../utilities/permissions';
 const Drawer = createDrawerNavigator();
 
 const CustomDrawerContent = props => {
-  requestLocationPermission();
   const {navigation} = props;
   const isDrawerOpenStatus = useDrawerStatus() === 'open';
   const {setDrawerOpenState} = useContext(DrawerContext);
@@ -73,6 +72,13 @@ const AccountNavigator = ({children, user}) => {
         }}
         initialRouteName={'Wines'}
         drawerContent={props => <CustomDrawerContent {...props} />}>
+        <Drawer.Screen
+          options={{
+            drawerItemStyle: {display: 'none'},
+          }}
+          name="New Wine"
+          component={WineNavigator}
+        />
         <Drawer.Screen name="Wines" component={Wines} />
         <Drawer.Screen
           name="Account"
