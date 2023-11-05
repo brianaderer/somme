@@ -5,7 +5,7 @@ import screenConfig from '../screens/screenConfig';
 import {config} from '../config/gluestack-ui.config';
 import React, {useEffect, useContext} from 'react';
 import {connect} from 'react-redux';
-import saveWine from '../utilities/saveWine';
+import SaveWine from '../utilities/saveWine';
 import UserContext from '../contexts/UserContext';
 
 const Tab = createBottomTabNavigator();
@@ -15,7 +15,7 @@ const WineNavigator = props => {
   const {wineProps} = props;
   const sommeColors = config.tokens.colors;
   useEffect(() => {
-    saveWine({wineProps, user});
+    SaveWine({wineProps, user});
   }, [wineProps]);
 
   return (

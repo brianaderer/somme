@@ -1,11 +1,24 @@
 // saveWine.js
 import firestore from '@react-native-firebase/firestore';
-import { Timestamp } from "@react-native-firebase/firestore/lib/modular/Timestamp";
-import { firebase } from "@react-native-firebase/app";
+import {firebase} from '@react-native-firebase/app';
+import Geolocation from 'react-native-geolocation-service';
+import {useState} from 'react';
 
 const winesCollection = firestore().collection('wines');
 
-const saveWine = async ({wineProps, user}) => {
+const SaveWine = async ({wineProps, user}) => {
+  const [location, setLocation] = useState(null);
+  Geolocation.getCurrentPosition(
+    position => {
+      setLocation(position);
+    },
+    error => {
+      // See error code charts below.
+      console.log(error.code, error.message);
+    },
+    {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
+  );
+  console.log(location);
   const dateTime = firebase.firestore.FieldValue.serverTimestamp();
   const docID = 'firstWine';
   const {id, visual} = wineProps;
@@ -23,4 +36,4 @@ const saveWine = async ({wineProps, user}) => {
   }
 };
 
-export default saveWine;
+export default SaveWine;

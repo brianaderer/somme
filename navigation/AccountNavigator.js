@@ -12,11 +12,12 @@ import {DrawerContext} from '../contexts/DrawerContext';
 import {StyledButton} from '../components/StyledButton';
 import {StyledIcon} from '../components/StyledIcon'; // Import the context
 import {config} from '../config/gluestack-ui.config';
-import { useNavigation } from "@react-navigation/native";
+import {requestLocationPermission} from '../utilities/permissions';
 
 const Drawer = createDrawerNavigator();
 
 const CustomDrawerContent = props => {
+  requestLocationPermission();
   const {navigation} = props;
   const isDrawerOpenStatus = useDrawerStatus() === 'open';
   const {setDrawerOpenState} = useContext(DrawerContext);
